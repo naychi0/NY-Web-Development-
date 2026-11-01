@@ -224,8 +224,22 @@
     "Cooking classes for young home cooks": {
       file: "Cooking classes for young home cooks.jpg",
       alt: "Participants learning to make noodles in a cooking class"
+    },
+    "Behind the pack: how we choose sizes": {
+      file: "Behind the pack how we choose sizes.jpg",
+      alt: "Illustration comparing package sizes and dimensions"
     }
   };
+  $$(".news-item").forEach(function (item) {
+    var title = $(".card__title", item);
+    if (title && title.textContent.trim() === "Smarter packaging, less waste") {
+      title.textContent = "Behind the pack: how we choose sizes";
+      var text = $(".card__text", item);
+      if (text) text.textContent = "A look at the pouch formats and size choices behind our product range.";
+      var link = $(".card__foot a", item);
+      if (link) link.setAttribute("aria-label", "Read more: Behind the pack: how we choose sizes");
+    }
+  });
   function applyNewsPhoto(figure, photo) {
     if (!figure || !photo) return;
     var image = document.createElement("img");

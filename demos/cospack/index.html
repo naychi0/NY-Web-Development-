@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CosPack Packing System Co., Ltd. — Cosmetic Packaging Catalogue</title>
+<meta name="description" content="CosPack Packing System supplies pumps, bottles, jars, tins and pouches for beauty, skincare, hair care and fragrance brands in Myanmar.">
+
+<!-- Favicon (small perfume-bottle emoji mark, safe to remove) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%B4%3C/text%3E%3C/svg%3E">
+
+<!-- Fonts: Fraunces (headlines) + Inter (body/UI) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#1C1912',       // near-black warm ink — text, header, footer
+          ivory: '#F3EEE5',     // page background
+          goldtint: '#EAE0CC',  // soft section background
+          gold: '#AD8A54',      // accent — labels, dividers, buttons
+          forest: '#3E4A3B'     // secondary accent — used sparingly
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Fraunces', serif; }
+
+  /* ---- Buttons ---- */
+  .btn-gold {
+    display: inline-block;
+    background-color: #AD8A54;
+    color: #1C1912;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color .2s ease;
+  }
+  .btn-gold:hover { background-color: #c4a26c; }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid rgba(243,238,229,0.4);
+    color: #F3EEE5;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: border-color .2s ease, background-color .2s ease;
+  }
+  .btn-outline:hover { border-color: #AD8A54; background-color: rgba(173,138,84,0.1); }
+
+  .btn-outline-dark {
+    display: inline-block;
+    border: 1px solid rgba(28,25,18,0.25);
+    color: #1C1912;
+    padding: 0.6rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: border-color .2s ease, background-color .2s ease;
+  }
+  .btn-outline-dark:hover { border-color: #AD8A54; background-color: rgba(173,138,84,0.08); }
+
+
+  /* ---- Hero slider + marquee ---- */
+  .slider-track { transition: transform .8s cubic-bezier(.22,.61,.36,1); will-change: transform; }
+  .slide-dot { width: 14px; height: 3px; background: rgba(243,238,229,.25); transition: background .3s ease, width .3s ease; }
+  .slide-dot[aria-current="true"] { background: #AD8A54; width: 28px; }
+  @media (min-width: 640px) { .slide-dot { width: 22px; } .slide-dot[aria-current="true"] { width: 38px; } }
+  .slider-btn { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(243,238,229,.3); color: #F3EEE5; transition: border-color .2s ease, background-color .2s ease, color .2s ease; }
+  .slider-btn:hover { border-color: #AD8A54; background-color: rgba(173,138,84,.12); color: #AD8A54; }
+  .hero-chip { border: 1px solid rgba(243,238,229,.2); color: rgba(243,238,229,.75); font-size: .75rem; padding: .3rem .7rem; letter-spacing: .02em; }
+
+  @keyframes cp-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { animation: cp-marquee 45s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-tile { height: 96px; width: 128px; object-fit: cover; flex: none; opacity: .85; transition: opacity .2s ease; }
+  .marquee-tile:hover { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slider-track { transition: none; }
+    .marquee-track { animation: none; }
+    .marquee { overflow-x: auto; }
+  }
+
+  /* Keyboard focus visibility */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #AD8A54;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+
+<body id="top" class="bg-ivory text-ink antialiased pb-16 md:pb-0">
+
+  <!-- Back to the NY portfolio (demo project) -->
+  <div class="bg-black text-[12px] text-ivory/70">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 h-8 flex items-center justify-between">
+      <a href="../../index.html#portfolio" class="hover:text-gold transition-colors">&larr; Back to NY Portfolio</a>
+      <span class="hidden sm:inline text-ivory/40">Demo project by NY</span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       HEADER
+       REPLACE: nothing required here besides confirming logo path
+       ========================================================= -->
+  <header class="sticky top-0 z-40 bg-ink">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3 shrink-0">
+        <!-- Brand logo: place Brand_logo.jpg inside your /images folder -->
+        <img src="images/brand_logo.jpg" alt="CosPack Packing System logo" class="h-10 w-10 object-cover rounded-sm">
+        <span class="font-display text-lg text-ivory tracking-wide leading-none">CosPack Packing System</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm text-ivory/75">
+        <a href="#about" class="hover:text-gold transition-colors">About</a>
+        <a href="#what-we-make" class="hover:text-gold transition-colors">Capabilities</a>
+        <a href="#products" class="hover:text-gold transition-colors">Catalogue</a>
+        <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
+      </nav>
+
+      <!-- REPLACE tel number if it ever changes -->
+      <a href="tel:+959880177169" class="hidden md:inline-block btn-outline">Call us</a>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="relative overflow-hidden bg-ink">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(55% 60% at 78% 35%, rgba(173,138,84,.20), transparent 70%);"></div>
+
+    <div class="relative max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-10 md:pt-20 md:pb-16 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+      <!-- Text -->
+      <div class="lg:col-span-5 min-w-0">
+        <p class="text-gold text-sm tracking-[.18em] uppercase">Beauty &middot; Food &middot; Fragrance &middot; Yangon</p>
+        <h1 class="mt-4 font-display text-4xl sm:text-5xl md:text-[3.4rem] text-ivory leading-[1.08]">
+          Packaging built for <em class="text-gold not-italic md:italic font-medium">what you're building.</em>
+        </h1>
+        <p class="mt-5 text-ivory/75 text-base md:text-lg leading-relaxed max-w-md">
+          CosPack Packing System supplies pumps, bottles, jars, tins and pouches
+          for beauty, skincare, hair care, food packaging, fragrance and personal care brands.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#products" class="btn-gold">View the catalogue</a>
+          <a href="tel:+959880177169" class="btn-outline">Call 098 8017 7169</a>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-2" aria-label="Materials">
+          <span class="hero-chip">Glass</span><span class="hero-chip">Plastic</span><span class="hero-chip">Aluminium</span><span class="hero-chip">Laminated foil</span>
+        </div>
+      </div>
+
+      <!-- Sliding photo showcase -->
+      <div class="lg:col-span-7 min-w-0">
+        <div id="heroSlider" class="relative" role="region" aria-roledescription="carousel" aria-label="CosPack product photos">
+          <div class="relative">
+            <div class="absolute -right-3 -bottom-3 w-full h-full border border-gold/50 pointer-events-none hidden sm:block" aria-hidden="true"></div>
+          <div class="relative overflow-hidden bg-white aspect-[4/5] sm:aspect-[5/4] w-full">
+            <ul class="slider-track flex h-full w-full" id="sliderTrack" aria-live="off">
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="1 of 10">
+            <img src="images/product_1.jpg" alt="Assorted lotion, foam and spray pump heads" class="w-full h-full object-cover" fetchpriority="high">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Pump Packaging</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Lotion &amp; Spray Pump Heads</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="2 of 10">
+            <img src="images/product_10.jpg" alt="Glass serum dropper bottles with metallic collars" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Glass Packaging</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Serum Dropper Bottles</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="3 of 10">
+            <img src="images/product_5.jpg" alt="Perfume glass bottles in many shapes and caps" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Perfume Packaging</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Clear &amp; Coloured Glass Bottles</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="4 of 10">
+            <img src="images/product_7.jpg" alt="Pump bottles in amber, clear, matte black and orange" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Plastic Bottles</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Shampoo &amp; Body Care Bottles</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="5 of 10">
+            <img src="images/product_9.jpg" alt="Colourful metal jar caps with safety buttons" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Metal Packaging</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Metal Caps &amp; Tinplate Lids</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="6 of 10">
+            <img src="images/product_2.jpg" alt="Silver stand-up zip pouches in three sizes" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Soft Pouches</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Stand-Up Zip Pouches</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="7 of 10">
+            <img src="images/product_6.jpg" alt="Round and rectangular ring-pull tins" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Cosmetic Packaging</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Metal Tins &amp; Containers</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="8 of 10">
+            <img src="images/product_8.jpg" alt="Silver foil flat pouches in five sizes" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Soft Pouches</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Foil Sachets, Multiple Sizes</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="9 of 10">
+            <img src="images/product_3.jpg" alt="Resealable zip-lock bags in five sizes" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Soft Pouches</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Zip-Lock Poly Bags</p>
+            </div>
+          </li>
+          <li class="slide min-w-full h-full relative" role="group" aria-roledescription="slide" aria-label="10 of 10">
+            <img src="images/product_4.jpg" alt="Metal can ends with ring-pull tabs" class="w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-x-0 bottom-0 px-5 pt-16 pb-5 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent">
+              <p class="text-gold text-xs tracking-wide">Metal Packaging</p>
+              <p class="font-display text-xl md:text-2xl text-ivory leading-tight mt-0.5">Can Ends &amp; Easy-Open Lids</p>
+            </div>
+          </li>
+            </ul>
+          </div>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-1 sm:gap-1.5 min-w-0" id="sliderDots"><button type="button" class="slide-dot" data-go="0" aria-label="Go to photo 1" aria-current="true"></button><button type="button" class="slide-dot" data-go="1" aria-label="Go to photo 2" aria-current="false"></button><button type="button" class="slide-dot" data-go="2" aria-label="Go to photo 3" aria-current="false"></button><button type="button" class="slide-dot" data-go="3" aria-label="Go to photo 4" aria-current="false"></button><button type="button" class="slide-dot" data-go="4" aria-label="Go to photo 5" aria-current="false"></button><button type="button" class="slide-dot" data-go="5" aria-label="Go to photo 6" aria-current="false"></button><button type="button" class="slide-dot" data-go="6" aria-label="Go to photo 7" aria-current="false"></button><button type="button" class="slide-dot" data-go="7" aria-label="Go to photo 8" aria-current="false"></button><button type="button" class="slide-dot" data-go="8" aria-label="Go to photo 9" aria-current="false"></button><button type="button" class="slide-dot" data-go="9" aria-label="Go to photo 10" aria-current="false"></button></div>
+            <div class="flex items-center gap-2">
+              <button type="button" class="slider-btn" id="sliderPrev" aria-label="Previous photo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <button type="button" class="slider-btn" id="sliderNext" aria-label="Next photo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Continuously moving strip of product photos -->
+    <div class="marquee relative border-t border-gold/20 py-4 overflow-hidden" aria-hidden="true">
+      <div class="marquee-track flex w-max">
+        <div class="flex gap-4 pr-4"><img src="images/product_1.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_10.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_5.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_7.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_9.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_2.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_6.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_8.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_3.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_4.jpg" alt="" class="marquee-tile" loading="lazy"></div>
+        <div class="flex gap-4 pr-4"><img src="images/product_1.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_10.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_5.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_7.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_9.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_2.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_6.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_8.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_3.jpg" alt="" class="marquee-tile" loading="lazy"><img src="images/product_4.jpg" alt="" class="marquee-tile" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHY WORK WITH US (feature strip — no invented statistics)
+       ========================================================= -->
+  <section class="border-b border-ink/10">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+      <div>
+        <p class="font-display text-lg">Custom sizing</p>
+        <p class="mt-1 text-ink/60">Sizes, colours and finishes matched to your product.</p>
+      </div>
+      <div>
+        <p class="font-display text-lg">Full material range</p>
+        <p class="mt-1 text-ink/60">Glass, plastic, aluminium and laminated foil.</p>
+      </div>
+      <div>
+        <p class="font-display text-lg">Brand-ready</p>
+        <p class="mt-1 text-ink/60">Custom printing and logo finishing available.</p>
+      </div>
+      <div>
+        <p class="font-display text-lg">Yangon-based</p>
+        <p class="mt-1 text-ink/60">Local support from order through delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT US
+       ========================================================= -->
+  <section id="about" class="px-5 md:px-8 py-16 md:py-24 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+    <div>
+      <p class="text-gold font-medium">About us</p>
+      <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">
+        Packaging partners for Myanmar's beauty industry
+      </h2>
+      <!-- Copy below is the client's provided About Us text -->
+      <p class="mt-5 text-ink/70 leading-relaxed max-w-md">
+        We provide a wide range of high-quality cosmetic packaging solutions for
+        beauty, skincare, hair care, fragrance, and personal care brands. Our
+        products are available in various designs, sizes, materials, colors, and
+        finishes, allowing us to meet different brand requirements and product
+        concepts.
+      </p>
+      <a href="tel:+959880177169" class="inline-block mt-6 btn-outline-dark">098 8017 7169</a>
+    </div>
+    <div>
+      
+      <img src="images/about_us.jpg" alt="CosPack's location in Hlaing Township, Yangon"
+           class="w-full aspect-[4/5] object-cover">
+      <p class="mt-3 text-sm text-ink/50">A6, Thazin Street, 9th Ward, Hlaing Township, Yangon, Myanmar</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHAT WE MAKE (capabilities list)
+       ========================================================= -->
+  <section id="what-we-make" class="bg-goldtint">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20">
+      <h2 class="font-display text-3xl md:text-4xl">What we make</h2>
+      <p class="mt-2 text-ink/60 max-w-lg">Our cosmetic packaging products, made to order.</p>
+
+      <div class="mt-8 grid sm:grid-cols-2 gap-x-14">
+        <div class="border-t border-ink/15 py-5">
+          <h3 class="font-display text-lg">Pump Packaging</h3>
+          <p class="mt-1 text-sm text-ink/65 leading-relaxed">Lotion pumps, foam pumps, mist sprayers, and dispenser pumps in a range of sizes and designs.</p>
+        </div>
+        <div class="border-t border-ink/15 py-5">
+          <h3 class="font-display text-lg">Cosmetic Packaging</h3>
+          <p class="mt-1 text-sm text-ink/65 leading-relaxed">Cream jars, serum bottles, lotion bottles, dropper bottles, and other containers for skincare and beauty.</p>
+        </div>
+        <div class="border-t border-ink/15 py-5">
+          <h3 class="font-display text-lg">Perfume Packaging</h3>
+          <p class="mt-1 text-sm text-ink/65 leading-relaxed">Bottles from standard to premium and customized styles, with a range of cap and finishing options.</p>
+        </div>
+        <div class="border-t border-ink/15 py-5">
+          <h3 class="font-display text-lg">Soft Pouches</h3>
+          <p class="mt-1 text-sm text-ink/65 leading-relaxed">Stand-up pouches, spout pouches, and laminated multi-layer pouches with custom printing.</p>
+        </div>
+        <div class="border-t border-ink/15 py-5">
+          <h3 class="font-display text-lg">Plastic Bottles</h3>
+          <p class="mt-1 text-sm text-ink/65 leading-relaxed">Bottles for shampoo, conditioner, body lotion, toner, and liquid soap, in multiple shapes and sizes.</p>
+        </div>
+        <div class="border-t border-ink/15 py-5 sm:border-b-0 border-b">
+          <h3 class="font-display text-lg">Roll-On Bottles</h3>
+          <p class="mt-1 text-sm text-ink/65 leading-relaxed">Glass and plastic roll-on packaging with a range of ball and cap options.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PRODUCT CATALOGUE GRID
+       Each card: photo, category, name, price tag, description,
+       and two CTAs (Messenger / Viber).
+       REPLACE the Messenger link on every card with your real
+       Facebook page (https://m.me/your-page-username).
+       The Viber link is pre-filled with 098 8017 7169 — update
+       the number if a different line should take orders.
+       ========================================================= -->
+  <section id="products" class="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+    <h2 class="font-display text-3xl md:text-4xl">Product catalogue</h2>
+    <p class="mt-2 text-ink/60 max-w-xl">A selection from our range — every item is available in custom sizes, colours and print finishes on request.</p>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Product 1 — product_1.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_1.jpg" alt="Assorted lotion, foam and spray pump heads" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Pump Packaging</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Lotion &amp; Spray Pump Heads</h3>
+            <!-- REPLACE: price or MOQ if you'd like to show a figure -->
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Dispenser, foam and spray pump heads in a full spectrum of colours and finishes, sized to fit lotion, foam and serum bottles.</p>
+          <div class="mt-4 flex gap-2">
+            <!-- REPLACE: your Facebook page username -->
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 2 — product_7.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_7.jpg" alt="Assorted shampoo and body care pump bottles" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Plastic Bottles</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Shampoo &amp; Body Care Bottles</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Pump-top bottles for shampoo, conditioner, body lotion and liquid soap, in matte, clear and glossy finishes.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 3 — product_5.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_5.jpg" alt="Clear glass bottles with narrow necks" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Perfume Packaging</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Clear Glass Bottles</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Standard glass bottles ready for cap or spray-top fitting, suited to fragrance and premium personal care lines.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 4 — product_2.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_2.jpg" alt="Silver aluminium stand-up zip pouches in three sizes" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Soft Pouches</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Stand-Up Zip Pouches</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Aluminium foil stand-up pouches with resealable zip, available in three capacities for powders and refills.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 5 — product_8.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_8.jpg" alt="Silver foil flat pouches in five sizes" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Soft Pouches</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Foil Sachets, Multiple Sizes</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Laminated foil pouches sized from sample sachets to full retail packs, with custom printing available.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 6 — product_3.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_3.jpg" alt="Resealable zip-lock poly bags in four sizes" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Soft Pouches</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Zip-Lock Poly Bags</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Resealable poly bags in four sizes, suited to samples, refills and small-batch products.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 7 — product_6.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_6.jpg" alt="Round and rectangular metal tins with ring-pull lids" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Cosmetic Packaging</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Metal Tins &amp; Containers</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Ring-pull metal tins in round and rectangular formats, suited to balms, solid products and gift sets.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 8 — product_4.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_4.jpg" alt="Colourful metal can ends with ring-pull tabs" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Metal Packaging</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Can Ends &amp; Easy-Open Lids</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">Easy-open ring-pull can ends in a range of finishes, matched to your can body and closure system.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 8 — product_4.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_9.jpg" alt="Colourful metal and tinplate jar caps with safety buttons" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Metal Packaging</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Metal Caps & Tinplate Lids</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">High-quality metal and tinplate caps designed for secure sealing and fresh preservation. Available in a wide array of vibrant colors, custom prints, and safety button designs for food jars and glass containers.</p>
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 8 — product_4.jpg -->
+      <article class="border border-ink/10 bg-white flex flex-col">
+        <img src="images/product_10.jpg" alt="Glass serum dropper bottles with gold, silver and red collars" class="w-full aspect-[4/3] object-cover">
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs text-gold tracking-wide">Glass Packaging</p>
+          <div class="flex items-start justify-between gap-3 mt-1">
+            <h3 class="font-display text-xl">Glass Serum Dropper Bottles</h3>
+            <span class="shrink-0 text-[11px] border border-ink/20 px-2 py-1 whitespace-nowrap">Price on request</span>
+          </div>
+          <p class="mt-2 text-sm text-ink/65 leading-relaxed flex-1">High-grade glass serum bottles with precision dropper caps. Available in custom finishes, vibrant metallic collars, and versatile capacities, ideally sized for essential oils, facial serums, and cosmetic liquids.</p>
+ 
+          <div class="mt-4 flex gap-2">
+            <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="btn-gold flex-1 text-center">Order via Messenger</a>
+            <a href="viber://chat?number=%2B959880177169" class="btn-outline-dark flex-1 text-center">Viber Us</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       OUR SERVICE (pull-quote band — client's provided text)
+       ========================================================= -->
+  <section class="bg-ink">
+    <div class="max-w-3xl mx-auto px-5 md:px-8 py-16 md:py-20">
+      <p class="font-display text-2xl md:text-3xl text-ivory leading-snug">
+        "From standard packaging to customized solutions, we support our
+        customers in selecting the right packaging according to their product,
+        brand image, quantity, and market requirements."
+      </p>
+      <p class="mt-4 text-gold text-sm">Our service</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT / FOOTER
+       REPLACE: Facebook link, email address if you'd like them live
+       ========================================================= -->
+  <footer id="contact" class="max-w-6xl mx-auto px-5 md:px-8 pt-16 pb-10">
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <span class="font-display text-lg tracking-wide">CosPack Packing System Co., Ltd.</span>
+        <p class="mt-3 text-sm text-ink/60 leading-relaxed">
+          A6, Thazin Street, 9th Ward,<br>
+          Hlaing Township, Yangon, Myanmar
+        </p>
+        <p class="mt-3 text-sm">
+          <a href="tel:+959880177169" class="hover:text-gold transition-colors">098 8017 7169</a>
+          <span class="text-ink/30 mx-2">&middot;</span>
+          <a href="mailto:cospackmkt@gmail.com" class="hover:text-gold transition-colors">cospackmkt@gmail.com</a>
+        </p>
+        <a href="https://cos-packpackingsystem.netlify.app/" target="_blank" rel="noopener" class="inline-block mt-5 btn-outline-dark">Visit the live site</a>
+      </div>
+
+      <div class="flex md:justify-end items-start gap-3">
+        <img src="images/cospack_qr.png" alt="QR code linking to the CosPack website" width="88" height="88" class="w-[88px] h-[88px] border border-ink/15 mr-2">
+        <!-- REPLACE: your can updated Facebook page URL -->
+        <a href="https://www.facebook.com/share/1GDEFwwZv3/" aria-label="Facebook"
+           class="w-11 h-11 flex items-center justify-center border border-ink/15 hover:border-gold hover:text-gold transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 9H15V6h-1.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.1l.4-3H13v-1.2c0-.5.3-.8.5-.8z"/></svg>
+        </a>
+        <!-- Viber, pre-filled with 098 8017 7169 -->
+        <a href="viber://chat?number=%2B959880177169" aria-label="Viber"
+           class="w-11 h-11 flex items-center justify-center border border-ink/15 hover:border-gold hover:text-gold transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7.3 3 4 6 4 10.2c0 2.4 1.2 4.5 3.1 5.9-.1.9-.5 2.2-1.4 3.4 1.6-.1 3.1-.8 4.2-1.6.7.2 1.4.3 2.1.3 4.7 0 8-3 8-7.2S16.7 3 12 3zm4.3 9.8c-.2.4-1 .9-1.5.9-.4 0-.9-.1-2.6-1.1-2-1.2-3.3-3.2-3.4-3.4-.1-.2-.8-1.1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .5.4l.7 1.7c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.3.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.1.2.1.3.1.4-.1l.4-.5c.2-.2.3-.2.5-.1l1.6.8c.2.1.3.1.4.2.1.2.1.7-.1 1.1z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-ink/10 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs text-ink/45">
+      <p>© 2026 CosPack Packing System Co., Ltd.</p>
+      <a href="#top" class="inline-flex items-center gap-1.5 hover:text-gold transition-colors">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+        Back to top
+      </a>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       STICKY MOBILE CONTACT BAR
+       REPLACE:Update Messenger page + email address
+       ========================================================= -->
+  <nav class="fixed bottom-0 inset-x-0 md:hidden bg-ink border-t border-gold/20 grid grid-cols-5 z-40" aria-label="Quick contact">
+    <a href="viber://chat?number=%2B959880177169" class="flex flex-col items-center justify-center gap-1 py-2.5 text-ivory/80 active:text-gold">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7.3 3 4 6 4 10.2c0 2.4 1.2 4.5 3.1 5.9-.1.9-.5 2.2-1.4 3.4 1.6-.1 3.1-.8 4.2-1.6.7.2 1.4.3 2.1.3 4.7 0 8-3 8-7.2S16.7 3 12 3z"/></svg>
+      <span class="text-[10px]">Viber</span>
+    </a>
+    <a href="https://www.facebook.com/share/1GDEFwwZv3/" class="flex flex-col items-center justify-center gap-1 py-2.5 text-ivory/80 active:text-gold">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.1 2 11.2c0 2.9 1.5 5.5 3.8 7.2V22l3.5-1.9c.9.3 1.9.4 2.7.4 5.5 0 10-4.1 10-9.2S17.5 2 12 2zm1 12.4-2.6-2.7-5 2.7 5.5-5.8 2.6 2.7 5-2.7-5.5 5.8z"/></svg>
+      <span class="text-[10px]">Messenger</span>
+    </a>
+    <a href="tel:+959880177169" class="flex flex-col items-center justify-center gap-1 py-2.5 text-ivory/80 active:text-gold">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.7 5 6.5 6.5l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4.3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+      <span class="text-[10px]">Call</span>
+    </a>
+    <!-- REPLACE: your can change update email address -->
+    <a href="mailto:cospackmkt@gmail.com" class="flex flex-col items-center justify-center gap-1 py-2.5 text-ivory/80 active:text-gold">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6l9 7 9-7"/></svg>
+      <span class="text-[10px]">Email</span>
+    </a>
+    <a href="#products" class="flex flex-col items-center justify-center gap-1 py-2.5 text-ivory/80 active:text-gold">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <span class="text-[10px]">Catalogue</span>
+    </a>
+  </nav>
+
+
+  <script>
+  (function () {
+    var track = document.getElementById('sliderTrack');
+    if (!track) return;
+    var slides = track.children, total = slides.length, i = 0, timer = null;
+    var dots = document.querySelectorAll('#sliderDots .slide-dot');
+    var box = document.getElementById('heroSlider');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function go(n) {
+      i = (n + total) % total;
+      track.style.transform = 'translateX(' + (-100 * i) + '%)';
+      for (var k = 0; k < total; k++) slides[k].setAttribute('aria-hidden', k === i ? 'false' : 'true');
+      dots.forEach(function (d, k) { d.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    }
+    function play() { if (reduce || timer) return; timer = setInterval(function () { go(i + 1); }, 4500); }
+    function stop() { clearInterval(timer); timer = null; }
+
+    document.getElementById('sliderNext').addEventListener('click', function () { go(i + 1); });
+    document.getElementById('sliderPrev').addEventListener('click', function () { go(i - 1); });
+    dots.forEach(function (d) { d.addEventListener('click', function () { go(+d.getAttribute('data-go')); }); });
+
+    box.addEventListener('mouseenter', stop);
+    box.addEventListener('mouseleave', play);
+    box.addEventListener('focusin', stop);
+    box.addEventListener('focusout', play);
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') go(i + 1);
+      if (e.key === 'ArrowLeft') go(i - 1);
+    });
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : play(); });
+
+    // Swipe on touch screens
+    var x0 = null;
+    track.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      if (x0 !== null) {
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+      }
+      x0 = null; play();
+    });
+
+    go(0); play();
+  })();
+  </script>
+
+</body>
+</html>

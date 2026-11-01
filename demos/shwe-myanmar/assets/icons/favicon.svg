@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="96" height="96" role="img" aria-label="Shwe Myanmar">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff3b47"/><stop offset="1" stop-color="#b8000d"/></linearGradient></defs>
+  <circle cx="24" cy="24" r="23" fill="url(#g)"/>
+  <path d="M10 25h28c0 8-6 13-14 13s-14-5-14-13z" fill="#f7c948"/>
+  <path d="M17 21c-2-3 2-4 0-8M24 21c-2-3 2-4 0-9M31 21c-2-3 2-4 0-8" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+</svg>

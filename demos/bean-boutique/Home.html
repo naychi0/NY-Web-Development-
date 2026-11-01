@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique - Premium Coffee Shop</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@400;500;600&family=Lora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="site.css">
+     
+</head>
+
+<body class="page-home">
+    <div class="hero-section wrapper">
+
+      <div class="hero-section">
+        <header class="navbar">
+            <div class="logo">Bean Boutique</div>
+            <nav class="nav-links">
+                <a href="Home.html">Home</a>
+                <a href="Coffee.html">Coffee</a>
+                <a href="Equipment.html">Equipment</a>
+                <a href="Event.html">Events</a>
+                <a href="offer.html">Offers</a>
+                <a href="Delivery.html">Delivery</a>
+                <a href="Payment.html">Payment</a>
+                 <a href="Cart.html" id="navCartLink"><i class="fa-solid fa-cart-shopping"></i> Cart <span id="cart-count" hidden></span></a>
+            </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </header> 
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="Home.html">Home</a>
+        <a href="Coffee.html">Coffee</a>
+        <a href="Equipment.html">Equipment</a>
+        <a href="Event.html">Events</a>
+        <a href="offer.html">Offers</a>
+        <a href="Delivery.html">Delivery</a>
+        <a href="Payment.html">Payment</a>
+        <a href="Cart.html">Cart</a>
+    </nav>
+    </div>
+
+       <main> 
+
+        <section class="menu-section" data-aos="fade-up">
+            <img src="image/T2.jpg" alt="Coffee Splash" class="splash-graphic">
+
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3>Welcome To Our Website</h3>
+                    <h2>Enjoy a new blend of coffee style</h2>
+                    <p>Explore all flavours of coffee with us. There is always a new cup worth experiencing.</p>
+                </div>
+
+                <div class="button-group">
+                    
+                    <button class="btn" id="orderBtn" onclick="window.location.href='Coffee.html'">Order Now</button>
+                    <button class="btn" onclick="openAuthModal('signInModal')">Sign In</button>
+                    <button class="btn" onclick="openAuthModal('signUpModal')">Sign Up</button>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="discover-section" data-aos="fade-up">
+
+
+            <div class="discover-container">
+                <div class="discover-content">
+                    <h2>Discover the best coffee</h2>
+                    <p>Bean Boutique is a coffee shop that provides you with quality coffee that helps boost your
+                        productivity and helps build your mood. Having a cup of coffee is good, but having a cup of real
+                        coffee is greater. There is no doubt that you will enjoy this coffee more than others you have
+                        ever tasted.</p>
+                    <a href="Coffee.html" class="btn-learn">Learn More</a>
+                </div>
+
+                <div class="discover-image">
+                    <img src="image/dc336e26fd0f9ed34a77d6dc1fa6d063.jpg" alt="Coffee beans shaped like a cup">
+                </div>
+            </div>
+        </section>
+
+        <section class="slideshow-container" data-aos="zoom-in">
+            <div class="slide fade">
+                <img src="image/WorkShop.jpg" alt="Pour Over">
+                <div class="slide-text">
+                    <h2>Featured: Single Origin Pour Over</h2>
+                    <a href="Coffee.html" class="btn-slide">Taste it today</a>
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <img src="image/Workshop2.avif" alt="Coffee Event">
+                <div class="slide-text">
+                    <h2>Live Acoustic Night - This Friday</h2>
+                    <a href="Event.html" class="btn-slide">Reserve a Seat</a>
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <img src="image/LatteArtMasterclass.jpg" alt="Latte Art">
+                <div class="slide-text">
+                    <h2>Latte Art Masterclass</h2>
+                    <a href="Event.html" class="btn-slide">Join the Workshop</a>
+                </div>
+            </div>
+        </section>
+        </main>
+        <div id="discountModal" class="modal-overlay">
+            <div class="modal-box">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <div class="modal-text">
+                    <h2>Welcome to Bean Boutique!</h2>
+                    <p>Sign up for our newsletter and get <strong>15% OFF</strong> your first coffee order.</p>
+                    <form id="discountForm">
+                        <input type="email" id="userEmail" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn-modal">Claim Discount</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="signInModal" class="auth-modal-overlay">
+            <div class="auth-modal-box">
+                <span class="close-auth-btn" onclick="closeAuthModal('signInModal')">&times;</span>
+                <h2 class="auth-title">Sign in to your account</h2>
+                <p class="auth-notice">* indicates required field</p>
+
+                <form action="#">
+                    <div class="input-group">
+                        <input type="text" required placeholder=" ">
+                        <label>* Username or email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required placeholder=" ">
+                        <label>* Password</label>
+                    </div>
+
+                    <div class="auth-actions">
+                        <button type="submit" class="btn-submit">Sign in</button>
+                    </div>
+                </form>
+
+                <div class="auth-switch">
+                    <p>Don't have an account? <a href="#" onclick="switchAuth('signInModal', 'signUpModal')">Join
+                            now</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="signUpModal" class="auth-modal-overlay">
+            <div class="auth-modal-box">
+                <span class="close-auth-btn" onclick="closeAuthModal('signUpModal')">&times;</span>
+                <h2 class="auth-title">Create an account</h2>
+                <p class="auth-notice">* indicates required field</p>
+
+                <form action="#">
+                    <div class="input-group">
+                        <input type="text" required placeholder=" ">
+                        <label>* First name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" required placeholder=" ">
+                        <label>* Last name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" required placeholder=" ">
+                        <label>* Email address</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" required placeholder=" ">
+                        <label>* Phone number</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required placeholder=" ">
+                        <label>* Password</label>
+                    </div>
+
+                    <div class="auth-actions">
+                        <button type="submit" class="btn-submit">Create account</button>
+                    </div>
+                </form>
+
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" onclick="switchAuth('signUpModal', 'signInModal')">Sign
+                            in</a></p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <h3>Bean Boutique</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> 123 Coffee Street, Yangon, Myanmar</p>
+                    <p><i class="fa-solid fa-phone"></i> +95 9 123 456 789</p>
+                    <p><i class="fa-solid fa-envelope"></i> hello@beanboutique.com</p>
+                    <p><i class="fa-regular fa-clock"></i> Open Daily: 7:00 AM - 8:00 PM</p>
+                </div>
+
+                
+
+                <div class="footer-map">
+                    <iframe src="https://maps.google.com/maps?q=Yangon&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                        height="250" title="Google Maps Location" class="footer-map-frame" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <div id="signupModal" class="signup-modal-overlay">
+    <div class="signup-modal-container">
+        <span class="close-signup-btn" onclick="document.getElementById('signupModal').classList.remove('show')">&times;</span>
+        
+        <h1 class="main-title">Create an account</h1>
+        
+        <div class="signup-card">
+            <p class="notice">* indicates required field</p>
+            
+            <form action="#">
+                <div class="input-group">
+                    <input type="text" id="firstName" required placeholder=" ">
+                    <label for="firstName">* First name</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="lastName" required placeholder=" ">
+                    <label for="lastName">* Last name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" required placeholder=" ">
+                    <label for="email">* Email address</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" required placeholder=" ">
+                    <label for="phone">* Phone number</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" required placeholder=" ">
+                    <label for="password">* Password</label>
+                </div>
+                <div class="action-container">
+                    <button type="submit" class="btn-submit">Create account</button>
+                </div>
+                  <p class="modal-login-link">
+                       Already have an account? <a href="#" onclick="switchAuth('signUpModal', 'signInModal')">Sign in</a>
+                   </p>
+              
+                       
+            </form>
+        </div>
+    </div>
+</div>
+
+        </footer>
+
+        <footer class="footer">
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h2>About Us</h2>
+                    <a href="Home.html">Our Heritage</a>
+                    <a href="Coffee.html">Our Coffee</a>
+                    <a href="Info.html">About Bean Boutique</a>
+                    <a href="offer.html">Customer Service</a>
+                    <a href="Info.html">Contact Us</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Careers</h2>
+                    <a href="Info.html">Culture and Values</a>
+                    <a href="Info.html">Join Our Team</a>
+                    <a href="Info.html">Alumni Community</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Social Impact</h2>
+                    <a href="Info.html">Ethical Sourcing</a>
+                    <a href="Info.html">Sustainability</a>
+                    <a href="Info.html">Community Foundation</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Order and Pick Up</h2>
+                    <a href="Info.html">Order on the App</a>
+                    <a href="Equipment.html">Order on the Web</a>
+                    <a href="Delivery.html">Delivery Options</a>
+                    <a href="Coffee.html">Explore Coffee for Home</a>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-wrapper">
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank" title="Facebook"> <i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="Instagram"> <i class="fab fa-instagram"> </i></a>
+                    <a href="https://x.com/" target="_blank" title="Twitter"> <i class="fab fa-twitter"> </i> </a>
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube"> <i class="fab fa-youtube"> </i> </a>
+                </div>
+
+                <div class="legal-links">
+                    <a href="Legal.html">Privacy Notice</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Terms of Use</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Information</a>
+                </div>
+
+                <p class="copyright-text">© 2026 Bean Boutique Coffee Company. All rights reserved.</p>
+
+
+            </div>
+        </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+    </div>
+</body>
+
+</html>

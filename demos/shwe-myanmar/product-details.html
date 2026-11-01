@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Details – Shwe Myanmar</title>
+  <meta name="description" content="Product details, specifications and packaging information.">
+  <meta name="theme-color" content="#B5121B">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-page="products" data-group="">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header__bar">
+      <a class="brand" href="index.html" aria-label="Shwe Myanmar &ndash; home">
+        <img class="brand__mark" src="assets/icons/logo.svg" width="44" height="44" alt="">
+        <span class="brand__text"><span class="brand__name">Shwe Myanmar</span><span class="brand__sub">Good Food. Golden Life.</span></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Main navigation"><ul class="nav__list"><li class="nav__item"><button class="nav__toggle" type="button" data-group="about" aria-expanded="false" aria-controls="sub-about">About<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="nav__sub" id="sub-about"><li><a href="about.html" data-nav="about">About Us<small>Who we are and what we do</small></a></li><li><a href="history.html" data-nav="history">Company History<small>Timeline and milestones</small></a></li><li><a href="vision-mission.html" data-nav="vision">Vision & Mission<small>Values and philosophy</small></a></li></ul></li><li class="nav__item"><a class="nav__link" href="products.html" data-nav="products">Products</a></li><li class="nav__item"><button class="nav__toggle" type="button" data-group="operations" aria-expanded="false" aria-controls="sub-operations">Operations<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="nav__sub" id="sub-operations"><li><a href="manufacturing.html" data-nav="manufacturing">Manufacturing<small>Process, facility and technology</small></a></li><li><a href="quality.html" data-nav="quality">Quality & Food Safety<small>How we protect every pack</small></a></li><li><a href="sustainability.html" data-nav="sustainability">Sustainability<small>Planet, resources and community</small></a></li></ul></li><li class="nav__item"><button class="nav__toggle" type="button" data-group="newsroom" aria-expanded="false" aria-controls="sub-newsroom">Newsroom<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="nav__sub" id="sub-newsroom"><li><a href="news.html" data-nav="news">News & Updates<small>Latest company stories</small></a></li><li><a href="activities.html" data-nav="activities">Company Activities<small>Events across departments</small></a></li><li><a href="csr.html" data-nav="csr">CSR Activities<small>Community and environment</small></a></li></ul></li><li class="nav__item"><button class="nav__toggle" type="button" data-group="people" aria-expanded="false" aria-controls="sub-people">People<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="nav__sub" id="sub-people"><li><a href="employee-development.html" data-nav="development">Employee Development<small>Training and growth</small></a></li><li><a href="careers.html" data-nav="careers">Careers<small>Join our team</small></a></li></ul></li><li class="nav__item nav__cta"><a class="btn btn--red btn--sm" href="contact.html" data-nav="contact">Contact Us</a></li></ul></nav>
+      <button class="nav-btn" id="navBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+<section class="page-hero" aria-label="Breadcrumb"><div class="wrap page-hero__inner" style="padding-block:20px 22px"><nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><span aria-current="page" id="crumbName">Product</span></li></ol></nav></div></section>
+    <section class="section" id="productDetail" aria-labelledby="detailName"><div class="wrap detail">
+      <div class="detail__pic" id="detailPic"></div>
+      <div>
+        <span class="tag" id="detailCat"></span>
+        <h1 id="detailName"></h1>
+        <p class="lead" style="margin-top:14px" id="detailDesc"></p>
+        <div style="margin-top:22px"><p class="demo-label" style="margin-bottom:8px">Available sizes</p><div class="size-pills" id="detailSizes"></div></div>
+        <h2 style="font-size:1.1rem;margin-top:32px">Product specifications</h2>
+        <table class="spec"><tbody>
+          <tr><th scope="row">Category</th><td id="detailCatCell"></td></tr>
+          <tr><th scope="row">Packaging format</th><td id="detailPack"></td></tr>
+          <tr><th scope="row">Ingredients</th><td>To be supplied by the company <span class="tag tag--ph">Placeholder</span></td></tr>
+          <tr><th scope="row">Nutrition information</th><td>To be supplied by the company <span class="tag tag--ph">Placeholder</span></td></tr>
+          <tr><th scope="row">Shelf life &amp; storage</th><td>To be confirmed <span class="tag tag--ph">Placeholder</span></td></tr>
+        </tbody></table>
+        <div class="btn-row" style="margin-top:28px"><a class="btn btn--red" id="detailEnquire" href="contact.html#contactForm">Enquire about this product <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="products.html">All products</a></div>
+      </div>
+    </div></section>
+    <section class="section section--soft" aria-labelledby="packTitle"><div class="wrap two-col two-col--top">
+      <div class="reveal"><span class="eyebrow">Packaging</span><h2 class="sec-head__title" id="packTitle" style="margin-top:12px">Packaging information</h2><p class="lead" style="margin-top:12px">Pack format and sizes for this product. Barcode, carton and pallet details will be added once provided.</p></div>
+      <div class="card" style="padding:8px 26px 18px"><table class="spec"><tbody><tr><th scope="row">Pack type</th><td id="packType"></td></tr><tr><th scope="row">Sizes</th><td><ul id="packSizes"></ul></td></tr><tr><th scope="row">Carton / pallet</th><td>[To be provided] <span class="tag tag--ph">Placeholder</span></td></tr></tbody></table></div>
+    </div></section>
+    <section class="section" aria-labelledby="relTitle"><div class="wrap">
+      <div class="sec-head  reveal"><span class="eyebrow">You may also like</span><h2 class="sec-head__title">Related products</h2></div><h2 class="visually-hidden" id="relTitle">Related products</h2>
+      <div class="prod-grid" id="relatedGrid"></div>
+    </div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="Shwe Myanmar &ndash; home"><img class="brand__mark" src="assets/icons/logo.svg" width="44" height="44" alt=""><span class="brand__text"><span class="brand__name">Shwe Myanmar</span><span class="brand__sub">Good Food. Golden Life.</span></span></a>
+          <p class="footer__about">Shwe Myanmar is committed to creating value through food and innovation.</p>
+        </div>
+        <nav aria-label="Company">
+          <h3>Company</h3>
+          <ul><li><a href="about.html">About Us</a></li><li><a href="history.html">Company History</a></li><li><a href="vision-mission.html">Vision &amp; Mission</a></li><li><a href="careers.html">Careers</a></li><li><a href="employee-development.html">Employee Development</a></li></ul>
+        </nav>
+        <nav aria-label="Products and operations">
+          <h3>Explore</h3>
+          <ul><li><a href="products.html">Products</a></li><li><a href="manufacturing.html">Manufacturing</a></li><li><a href="quality.html">Quality &amp; Food Safety</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="news.html">News &amp; Updates</a></li></ul>
+        </nav>
+        <div>
+          <h3>Contact</h3>
+          <ul class="footer__contact"><li>[Office address &ndash; to be provided]</li><li>[Telephone &ndash; to be provided]</li><li>[Email &ndash; to be provided]</li><li><a href="contact.html">Send us a message &rarr;</a></li></ul>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>&copy; <span id="year">2026</span> Shwe Myanmar &middot; Sample brand for a demo website by NY. Company details, dates and images are placeholders.</span>
+        <span><a href="design-system.html">Design system</a> &middot; <a href="../../index.html#portfolio">&larr; Back to NY Portfolio</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 15 7-7 7 7"/></svg></button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

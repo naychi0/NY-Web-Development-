@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique - Coffee Selection</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <link rel="stylesheet" href="site.css">
+     
+
+</head>
+<body class="page-coffee">
+     <div class="hero-section-wrapper"></div>
+   <div class="hero-section">
+        <header class="navbar">
+            <div class="logo">Bean Boutique</div>
+            <nav class="nav-links">
+                <a href="Home.html">Home</a>
+                <a href="Coffee.html">Coffee</a>
+                <a href="Equipment.html">Equipment</a>
+                <a href="Event.html">Events</a>
+                <a href="offer.html">Offers</a>
+                <a href="Delivery.html">Delivery</a>
+                <a href="Payment.html">Payment</a>
+                 <a href="Cart.html" id="navCartLink"><i class="fa-solid fa-cart-shopping"></i> Cart <span id="cart-count" hidden></span></a>
+            </nav>
+        
+          <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </header> 
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="Home.html">Home</a>
+        <a href="Coffee.html">Coffee</a>
+        <a href="Equipment.html">Equipment</a>
+        <a href="Event.html">Events</a>
+        <a href="offer.html">Offers</a>
+        <a href="Delivery.html">Delivery</a>
+        <a href="Payment.html">Payment</a>
+        <a href="Cart.html">Cart</a>
+    </nav>
+    </div>
+
+    <section class="menu-section" data-aos="fade-up">
+    <img src="image/ss.jpg" alt="Coffee Splash" class="splash-graphic">
+
+        <div class="menu-header"> 
+            <h2>Enjoy a new blend of coffee style</h2>
+            <p>Explore all flavours of coffee with us.</p>
+          </div>
+        <div class="search-container">
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="coffeeSearchBox" class="animated-search" placeholder="Search your favorite coffee...">
+        </div>
+    </div>
+        <div class="menu-grid">
+            
+            <div class="coffee-card" data-aos="fade-up">
+                <img src="image/Cappuccino.jpg" alt="Cappuccino" class="card-image">
+                <div class="card-content">
+                    <h3>Cappuccino</h3>
+                    <p class="ingredients">Coffee 50% | Milk 50%</p>
+                    <p class="description">A classic Italian favorite. Rich espresso beautifully balanced with velvety steamed milk and a thick layer of creamy foam.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Rich Cocoa, Sweet Milk, Roasted Nuts
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Espresso Machine, Hot serving
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$8.50</span>
+                        <button class="btn-instant-cart" data-name="Cappuccino" data-price="8.50">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up" data-aos-delay="50">
+                <img src="image/orangeamericano.jpg" alt="Orange Americano" class="card-image">
+                <div class="card-content">
+                    <h3>Orange Americano</h3>
+                    <p class="ingredients">Coffee 50% | Orange Juice 50%</p>
+                    <p class="description">The bold taste of dark espresso mixed with the bright, citrusy zing of fresh orange juice.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Citrus, Bright Espresso, Zesty
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Iced serving, Summer days
+                    </div>
+                    <div class="card-action">
+                        <span class="price">From $6.50</span>
+                        <button class="btn-add-cart" onclick="window.location.href='Detailview.html'">Customize</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="image/blackcoffee.jpg" alt="Single Espresso" class="card-image">
+                <div class="card-content">
+                    <h3>Single Espresso</h3>
+                    <p class="ingredients">100% Arabica Beans</p>
+                    <p class="description">Pure, unadulterated coffee perfection. A concentrated, intense shot with a rich aroma and a golden crema layer.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Bold, Caramel, Dark Chocolate
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Espresso Machine, Quick boost
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$3.50</span>
+                        <button class="btn-instant-cart" data-name="Single Espresso" data-price="3.50">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up" data-aos-delay="150">
+                <img src="image/ClassicLatte.jpg" alt="Classic Latte" class="card-image">
+                <div class="card-content">
+                    <h3>Classic Latte</h3>
+                    <p class="ingredients">Coffee 30% | Milk 70%</p>
+                    <p class="description">Smooth and deeply satisfying. A gentle blend of our dark roast espresso and plenty of warm, sweet steamed milk.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Creamy, Smooth, Subtle Vanilla
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Steamed Milk, Relaxing mornings
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$7.50</span>
+                        <button class="btn-instant-cart" data-name="Classic Latte" data-price="7.50">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up">
+                <img src="image/qwer.jpg" alt="flat white" class="card-image">
+                <div class="card-content">
+                    <h3> Mocha</h3>
+                    <p class="ingredients"> Double espresso | Milk </p>
+                    <p class="description">Double shot of espresso and a thin, velvety layer of microfoam,smoother and less frothy than a cappuccino.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Bold and robust espresso flavors
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Pull a double shot ,Steam milk
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$8.50</span>
+                        <button class="btn-instant-cart" data-name="Iced Mocha" data-price="8.50">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up" data-aos-delay="50">
+                <img src="image/Coffee3.jpg" alt="Chai Latte" class="card-image">
+                <div class="card-content">
+                    <h3>Spiced Chai Latte</h3>
+                    <p class="ingredients">Black Tea | Spice Blend | Milk</p>
+                    <p class="description">A warm chai blend with black tea, cinnamon, cardamom, ginger, and steamed milk.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Cinnamon, Cardamom, Ginger, Earthy
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Hot steeping, Cozy evenings
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$7.00</span>
+                        <button class="btn-instant-cart" data-name="Spiced Chai Latte" data-price="7.00">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="image/Coffee4.jpg" alt="Double Espresso" class="card-image">
+                <div class="card-content">
+                    <h3>Double Espresso</h3>
+                    <p class="ingredients">60ml Espresso | Rich Crema</p>
+                    <p class="description">For those who need an extra kick. A double shot (Doppio) delivering robust flavor and a lingering, dark finish.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Intense, Smoky, Dark Chocolate finish
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Espresso Machine, Strong energy boost
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$5.00</span>
+                        <button class="btn-instant-cart" data-name="Double Espresso" data-price="5.00">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up" data-aos-delay="150">
+                <img src="image/Coffee7.jpg" alt="Espresso Sunrise" class="card-image">
+                <div class="card-content">
+                    <h3>Espresso Sunrise</h3>
+                    <p class="ingredients">Espresso | Sparkling Orange</p>
+                    <p class="description">A modern twist on coffee. The depth of espresso floats beautifully over sparkling orange water. Refreshing and bold.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Zesty Orange, Effervescent, Bold Coffee
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Iced serving, Sparkling mix
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$8.00</span>
+                        <button class="btn-instant-cart" data-name="Espresso Sunrise" data-price="8.00">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div> </section>
+
+    <section class="menu-section coffee-selection-section" data-aos="fade-up">
+        <div class="menu-header">
+            <h2>Our Coffee Selection</h2>
+            <p>Selected coffee beans imported from the best regions of the world</p>
+        </div>
+
+        <div class="menu-grid">
+            
+            <div class="coffee-card" data-aos="fade-up">
+                <div class="card-tag">Single Origin</div>
+                <img src="image/EthiopiaYirgacheffe.webp" alt="Ethiopia Yirgacheffe" class="card-image">
+                <div class="card-content">
+                    <h3>Ethiopia Yirgacheffe</h3>
+                    <p class="description">Ethiopia's iconic coffee bean, with a floral aroma and a fruity flavor.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Jasmine, Lemon, Blueberry
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Pour-over (V60), Chemex
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$18.50</span>
+                        <button class="btn-instant-cart" data-name="Ethiopia Yirgacheffe Beans" data-price="18.50">Add to Cart</button>              
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-tag">House Blend</div>
+                <img src="image/title.jpg" alt="Boutique Signature" class="card-image">
+                <div class="card-content">
+                    <h3>Boutique Signature</h3>
+                    <p class="description">Our shop's own blend, perfectly balanced with a rich, chocolatey sweetness.</p>
+                    <div class="tasting-notes">
+                        <strong><i class="fa-solid fa-leaf"></i> Tasting Notes:</strong> Chocolate, Caramel, Smooth
+                    </div>
+                    <div class="brewing-method">
+                        <strong><i class="fa-solid fa-mug-hot"></i> Best for:</strong> Espresso, Milk-based drinks
+                    </div>
+                    <div class="card-action">
+                        <span class="price">$16.00</span>
+                        <button class="btn-instant-cart" data-name="Boutique Signature" data-price="16.00">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div> </section>
+
+    <footer class="footer">
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h2>About Us</h2>
+                    <a href="Home.html">Our Heritage</a>
+                    <a href="Coffee.html">Our Coffee</a>
+                    <a href="Info.html">About Bean Boutique</a>
+                    <a href="offer.html">Customer Service</a>
+                    <a href="Info.html">Contact Us</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Careers</h2>
+                    <a href="Info.html">Culture and Values</a>
+                    <a href="Info.html">Join Our Team</a>
+                    <a href="Info.html">Alumni Community</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Social Impact</h2>
+                    <a href="Info.html">Ethical Sourcing</a>
+                    <a href="Info.html">Sustainability</a>
+                    <a href="Info.html">Community Foundation</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Order and Pick Up</h2>
+                    <a href="Info.html">Order on the App</a>
+                    <a href="Equipment.html">Order on the Web</a>
+                    <a href="Delivery.html">Delivery Options</a>
+                    <a href="Coffee.html">Explore Coffee for Home</a>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-wrapper">
+
+                <div class="social-icons">
+                     <a href="https://www.facebook.com/" target="_blank" title="Facebook"> <i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="Instagram"> <i class="fab fa-instagram"> </i></a>
+                    <a href="https://x.com/" target="_blank" title="Twitter"> <i class="fab fa-twitter"> </i> </a>
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube"> <i class="fab fa-youtube"> </i> </a>
+                </div>
+
+                <div class="legal-links">
+                    <a href="Legal.html">Privacy Notice</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Terms of Use</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Information</a>
+                </div>
+
+                <p class="copyright-text">© 2026 Bean Boutique Coffee Company. All rights reserved.</p>
+
+
+            </div>
+        </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js?v=5"></script>
+    
+  
+</body>
+</html>

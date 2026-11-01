@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Babe Cake – Sweet Moments, Bigger Smiles</title>
+  <meta name="description" content="Babe Cake – delicious cakes for every occasion in Yangon, Myanmar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Babe Cake home">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 22h28l-3 18a3 3 0 0 1-3 2H16a3 3 0 0 1-3-2z" fill="#ffb3c8" stroke="#f0467c" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M8 22c0-6 6-10 16-10s16 4 16 10z" fill="#ff8fb3" stroke="#f0467c" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="24" cy="8" r="3.2" fill="#f0467c"/>
+          <path d="M18 28v10M24 28v10M30 28v10" stroke="#f0467c" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Babe Cake</span>
+      </a>
+
+      <nav class="nav__menu" id="navMenu" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a class="nav__link is-active" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#why">About</a></li>
+          <li><a class="nav__link" href="#products">Products</a></li>
+          <li><a class="nav__link" href="#gallery">Gallery</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="cart-btn" id="cartToggle" type="button" aria-label="Open cart" aria-controls="cartDrawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg>
+          <span class="cart-btn__count" id="cartCount" hidden>0</span>
+        </button>
+        <a class="btn btn--pink nav__order" href="#products">Order Now</a>
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO SLIDER -->
+    <section class="hero" id="home" aria-roledescription="carousel" aria-label="Featured cakes">
+      <div class="hero__track" id="heroTrack">
+        <div class="slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3"
+             style="background-image: url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1600&q=80'), linear-gradient(135deg,#ffb3c8,#ffe3ec);">
+          <div class="container">
+            <div class="hero__text">
+              <h1 class="hero__title">Sweet Moments, Bigger Smiles</h1>
+              <p class="hero__sub">Delicious cakes for every occasion</p>
+              <a class="btn btn--pink" href="#products">Order Now <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3"
+             style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1600&q=80'), linear-gradient(135deg,#ffc0d3,#fff0f5);">
+          <div class="container">
+            <div class="hero__text">
+              <h2 class="hero__title">Baked Fresh, Made With Love</h2>
+              <p class="hero__sub">Premium ingredients in every layer</p>
+              <a class="btn btn--pink" href="#products">Order Now <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3"
+             style="background-image: url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=1600&q=80'), linear-gradient(135deg,#ff8fb3,#ffe3ec);">
+          <div class="container">
+            <div class="hero__text">
+              <h2 class="hero__title">Celebrate Every Occasion</h2>
+              <p class="hero__sub">Birthdays, weddings and everything sweet</p>
+              <a class="btn btn--pink" href="#gallery">See Our Gallery <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="hero__arrow hero__arrow--prev" id="heroPrev" type="button" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+      </button>
+      <button class="hero__arrow hero__arrow--next" id="heroNext" type="button" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+      </button>
+      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Choose slide"></div>
+    </section>
+
+    <!-- OUR CAKES -->
+    <section class="section" id="products" aria-labelledby="productsTitle">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title" id="productsTitle">Our Cakes</h2>
+          <p class="section__sub">Choose from our popular cakes</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card reveal">
+            <div class="photo" data-emoji="🍫"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=75" alt="Chocolate cake" loading="lazy" onerror="this.remove()"></div>
+            <h3 class="product-card__name">Chocolate Cake</h3>
+            <p class="product-card__price">MMK 25,000</p>
+            <button class="btn btn--pink btn--sm js-add" type="button" data-name="Chocolate Cake" data-price="25000">Add to Cart</button>
+          </article>
+          <article class="product-card reveal">
+            <div class="photo" data-emoji="🍰"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=75" alt="Vanilla cake with berries" loading="lazy" onerror="this.remove()"></div>
+            <h3 class="product-card__name">Vanilla Cake</h3>
+            <p class="product-card__price">MMK 22,000</p>
+            <button class="btn btn--pink btn--sm js-add" type="button" data-name="Vanilla Cake" data-price="22000">Add to Cart</button>
+          </article>
+          <article class="product-card reveal">
+            <div class="photo" data-emoji="🍓"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=75" alt="Strawberry cake" loading="lazy" onerror="this.remove()"></div>
+            <h3 class="product-card__name">Strawberry Cake</h3>
+            <p class="product-card__price">MMK 24,000</p>
+            <button class="btn btn--pink btn--sm js-add" type="button" data-name="Strawberry Cake" data-price="24000">Add to Cart</button>
+          </article>
+          <article class="product-card reveal">
+            <div class="photo" data-emoji="🍵"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=75" alt="Matcha cake" loading="lazy" onerror="this.remove()"></div>
+            <h3 class="product-card__name">Matcha Cake</h3>
+            <p class="product-card__price">MMK 26,000</p>
+            <button class="btn btn--pink btn--sm js-add" type="button" data-name="Matcha Cake" data-price="26000">Add to Cart</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE -->
+    <section class="why" id="why" aria-labelledby="whyTitle">
+      <div class="container">
+        <div class="why__box reveal">
+          <div>
+            <h2 class="why__title" id="whyTitle">Why Choose Babe Cake?</h2>
+            <ul class="why__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Fresh &amp; Premium Ingredients</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Beautiful Design</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>On-Time Delivery</li>
+            </ul>
+            <a class="btn btn--white" href="#contact">Learn More <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="photo why__photo" data-emoji="🎂"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=75" alt="Heart-shaped birthday cake" loading="lazy" onerror="this.remove()"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery" id="gallery" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title" id="galleryTitle">Our Gallery</h2>
+          <p class="section__sub">More Sweet Creations</p>
+        </div>
+        <div class="gallery__grid" id="galleryGrid">
+          <button class="photo gallery__item reveal" data-emoji="🧁" type="button" aria-label="Open photo: chocolate drip cake"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=75" alt="Chocolate drip cake" loading="lazy" onerror="this.remove()"></button>
+          <button class="photo gallery__item reveal" data-emoji="🧁" type="button" aria-label="Open photo: fruit cake"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=75" alt="Fruit topped cake" loading="lazy" onerror="this.remove()"></button>
+          <button class="photo gallery__item reveal" data-emoji="🧁" type="button" aria-label="Open photo: cupcakes"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=75" alt="Pink cupcakes" loading="lazy" onerror="this.remove()"></button>
+          <button class="photo gallery__item reveal" data-emoji="🧁" type="button" aria-label="Open photo: rose cake"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=900&q=75" alt="Pink rose cake" loading="lazy" onerror="this.remove()"></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="logo" href="#home" aria-label="Babe Cake home">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" width="40" height="40">
+              <path d="M10 22h28l-3 18a3 3 0 0 1-3 2H16a3 3 0 0 1-3-2z" fill="#ffd1df" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 22c0-6 6-10 16-10s16 4 16 10z" fill="#ffb3c8" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="24" cy="8" r="3.2" fill="#fff"/>
+            </svg>
+            <span>Babe Cake</span>
+          </a>
+          <p class="site-footer__tag">Make Life Sweeter</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.5c0-.7.3-1 1-1h2V2h-3a4 4 0 0 0-4.2 4.2V8H7v3.5h2.8V22H14V11.5h2.8L17.3 8z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.4 1.7 3.9 4 4.1v3.2a7 7 0 0 1-4-1.3v6.2a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.1v3.3a2.6 2.6 0 1 0 1.7 2.4V3z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h2 class="site-footer__title">Quick Links</h2>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#why">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="site-footer__title">Contact Us</h2>
+          <ul class="contact-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+959123456789">09 123 456 789</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:hello@babecake.com">hello@babecake.com</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Yangon, Myanmar</li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__copy">© <span id="year">2025</span> Babe Cake. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 15 7-7 7 7"/></svg>
+  </button>
+
+  <!-- CART DRAWER -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer__head">
+      <h2 class="drawer__title">Your Cart</h2>
+      <button class="drawer__close" id="cartClose" type="button" aria-label="Close cart">×</button>
+    </div>
+    <div class="drawer__body" id="cartBody"></div>
+    <div class="drawer__foot">
+      <div class="drawer__total"><span>Total</span><span id="cartTotal">MMK 0</span></div>
+      <button class="btn btn--pink" id="checkoutBtn" type="button" style="justify-content:center">Place Order</button>
+    </div>
+  </aside>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery photo" hidden>
+    <button class="lightbox__btn lightbox__btn--close" id="lbClose" type="button" aria-label="Close">×</button>
+    <button class="lightbox__btn lightbox__btn--prev" id="lbPrev" type="button" aria-label="Previous photo">‹</button>
+    <img class="lightbox__img" id="lbImg" src="" alt="">
+    <button class="lightbox__btn lightbox__btn--next" id="lbNext" type="button" aria-label="Next photo">›</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

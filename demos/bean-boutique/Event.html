@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique - Events & Workshops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+     <link rel="stylesheet" href="site.css">
+     
+</head>
+<body class="page-event">
+
+
+     <div class="hero-section">
+        <header class="navbar">
+            <div class="logo">Bean Boutique</div>
+            <nav class="nav-links">
+                <a href="Home.html">Home</a>
+                <a href="Coffee.html">Coffee</a>
+                <a href="Equipment.html">Equipment</a>
+                <a href="Event.html">Events</a>
+                <a href="offer.html">Offers</a>
+                <a href="Delivery.html">Delivery</a>
+                <a href="Payment.html">Payment</a>
+                 <a href="Cart.html" id="navCartLink"><i class="fa-solid fa-cart-shopping"></i> Cart <span id="cart-count" hidden></span></a>
+            </nav>
+        
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </header> 
+    
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="Home.html">Home</a>
+        <a href="Coffee.html">Coffee</a>
+        <a href="Equipment.html">Equipment</a>
+        <a href="Event.html">Events</a>
+        <a href="offer.html">Offers</a>
+        <a href="Delivery.html">Delivery</a>
+        <a href="Payment.html">Payment</a>
+        <a href="Cart.html">Cart</a>
+    </nav>
+    </div> 
+
+    <div class="event-gallery-section">
+        <div class="events-hero-content">
+            <h1>Upcoming Events & Workshops</h1>
+            <p>Join our community. Learn the art of brewing, taste unique blends, and meet the masters behind your favorite cup.</p>
+        </div>
+    </div>
+
+    <div class="event-gallery-section">
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="image/CoffeFestival.webp" alt="Event Activity 1">
+            </div>
+            <div class="slide fade">
+                <img src="image/Slide2.png" alt="Event Activity 2">
+            </div>
+            <div class="slide fade">
+                <img src="image/workshopclass.jpg" alt="Event Activity 3">
+            </div>
+        </div>
+ </div>
+
+    <section class="how-it-works">
+        <h2>What to expect</h2>
+        <p class="subtitle">Immerse yourself in the world of coffee.</p>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Learn from Experts</h3>
+                <p>Our master roasters and champion baristas share their secrets in hands-on brewing classes.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                <h3>Taste Rare Blends</h3>
+                <p>Experience exclusive, limited-time single-origin coffees during our tasting sessions.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <h3>Meet the Community</h3>
+                <p>Connect with fellow coffee lovers and industry experts during our relaxed evening social events.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-schedule">
+        <h2>Schedule your routine</h2>
+        <p class="subtitle">Find an event that fits your taste and sign up online.</p>
+
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-date">This Friday, 7:00 PM</div>
+                <h3>Latte Art & Brewing Masterclass</h3>
+                <p class="event-desc">Perfect your pour. Learn the techniques behind the heart, rosetta, and advanced brewing methods.</p>
+                <ul class="event-details">
+                    <li><i class="fa-solid fa-location-dot"></i> Main Workshop Area</li>
+                    <li><i class="fa-regular fa-clock"></i> 2 Hours</li>
+                    <li><i class="fa-solid fa-user-group"></i> Max 10 People</li>
+                </ul>
+                <button class="btn-register" onclick="openRegistration('Latte Art & Brewing Masterclass')">Register Now ($25)</button>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date">Saturday, 10:00 AM</div>
+                <h3>Single Origin Cupping Session</h3>
+                <p class="event-desc">A guided coffee tasting session featuring our newest Ethiopian and Colombian imported beans.</p>
+                <ul class="event-details">
+                    <li><i class="fa-solid fa-location-dot"></i> Tasting Room</li>
+                    <li><i class="fa-regular fa-clock"></i> 1.5 Hours</li>
+                    <li><i class="fa-solid fa-user-group"></i> Free for Gold Members</li>
+                </ul>
+                <button class="btn-register" onclick="openRegistration('Single Origin Cupping Session')">Register Now (Free)</button>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date">Next Thursday, 6:00 PM</div>
+                <h3>Meet the Roaster: Evening Talk</h3>
+                <p class="event-desc">Join our Head Roaster as he discusses the journey of a coffee bean from farm to cup.</p>
+                <ul class="event-details">
+                    <li><i class="fa-solid fa-location-dot"></i> The Lounge</li>
+                    <li><i class="fa-regular fa-clock"></i> 2 Hours</li>
+                    <li><i class="fa-solid fa-user-group"></i> Open to everyone</li>
+                </ul>
+                <button class="btn-register" onclick="openRegistration('Meet the Roaster: Evening Talk')">Reserve a Seat</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="registrationModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeRegistration()">&times;</span>
+            <div class="modal-text">
+                <h2>Event Registration</h2>
+                <p class="registration-note">You are registering for: <br><strong id="eventNameDisplay" class="highlight-text"></strong></p>
+
+                <form action="mailto:hello@beanboutique.com?subject=Bean%20Boutique%20Event%20Registration" method="post" enctype="text/plain" class="registration-form" id="registrationForm">
+                    <input type="hidden" id="regEventName" name="Event">
+                    <div class="input-group">
+                        <input type="text" id="regFirstName" name="First Name" placeholder="First Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="regLastName" name="Last Name" placeholder="Last Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="regEmail" name="Email Address" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <select required class="modal-select" name="Attendees">
+                            <option value="">Number of Attendees</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                        </select>
+                    </div>
+                     <div class="recaptcha-container">
+    <div class="recaptcha-box" id="fakeRecaptcha" onclick="toggleRecaptcha()">
+        
+        <div class="rc-checkbox-wrapper">
+            <div class="rc-checkbox">
+             <i class="fa-solid fa-check rc-check-icon-custom" id="rc-check-icon"></i>
+
+              <div id="recaptcha-error" class="rc-error-custom">
+               Please verify that you are not a robot.
+        </div>
+            </div>
+        </div>
+        
+        <div class="rc-text">I'm not a robot</div>
+        
+        <div class="rc-logo-wrapper">
+            <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA">
+            <div class="rc-links">reCAPTCHA<br>Privacy - Terms</div>
+        </div>
+
+    </div>
+    <div id="recaptcha-error" style="color: red; font-size: 0.85rem; margin-top: 5px; display: none; text-align: left;">
+        Please verify that you are not a robot.
+    </div>
+</div>
+                    <button type="submit" class="btn-submit-reg">Complete Registration</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<footer class="footer">
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h2>About Us</h2>
+                    <a href="Home.html">Our Heritage</a>
+                    <a href="Coffee.html">Our Coffee</a>
+                    <a href="Info.html">About Bean Boutique</a>
+                    <a href="offer.html">Customer Service</a>
+                    <a href="Info.html">Contact Us</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Careers</h2>
+                    <a href="Info.html">Culture and Values</a>
+                    <a href="Info.html">Join Our Team</a>
+                    <a href="Info.html">Alumni Community</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Social Impact</h2>
+                    <a href="Info.html">Ethical Sourcing</a>
+                    <a href="Info.html">Sustainability</a>
+                    <a href="Info.html">Community Foundation</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Order and Pick Up</h2>
+                    <a href="Info.html">Order on the App</a>
+                    <a href="Equipment.html">Order on the Web</a>
+                    <a href="Delivery.html">Delivery Options</a>
+                    <a href="Coffee.html">Explore Coffee for Home</a>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-wrapper">
+
+                <div class="social-icons">
+                      <a href="https://www.facebook.com/" target="_blank" title="Facebook"> <i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="Instagram"> <i class="fab fa-instagram"> </i></a>
+                    <a href="https://x.com/" target="_blank" title="Twitter"> <i class="fab fa-twitter"> </i> </a>
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube"> <i class="fab fa-youtube"> </i> </a>
+                </div>
+
+                <div class="legal-links">
+                    <a href="Legal.html">Privacy Notice</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Terms of Use</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Information</a>
+                </div>
+
+                <p class="copyright-text">© 2026 Bean Boutique Coffee Company. All rights reserved.</p>
+
+
+            </div>
+        </footer>
+<script src="script.js?v=5"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html> 

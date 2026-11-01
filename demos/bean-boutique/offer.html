@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers & Subscriptions - Bean Boutique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body class="page-offer">
+
+    <header class="hero-section">
+     <div class="hero-section">
+        <header class="navbar">
+            <div class="logo">Bean Boutique</div>
+            <nav class="nav-links">
+                <a href="Home.html">Home</a>
+                <a href="Coffee.html">Coffee</a>
+                <a href="Equipment.html">Equipment</a>
+                <a href="Event.html">Events</a>
+                <a href="offer.html">Offers</a>
+                <a href="Delivery.html">Delivery</a>
+                <a href="Payment.html">Payment</a>
+                 <a href="Cart.html" id="navCartLink"><i class="fa-solid fa-cart-shopping"></i> Cart <span id="cart-count" hidden></span></a>
+            </nav>
+         <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        
+
+        <span></span>
+        <span></span>
+        <span></span>
+    </header> 
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="Home.html">Home</a>
+        <a href="Coffee.html">Coffee</a>
+        <a href="Equipment.html">Equipment</a>
+        <a href="Event.html">Events</a>
+        <a href="offer.html">Offers</a>
+        <a href="Delivery.html">Delivery</a>
+        <a href="Payment.html">Payment</a>
+        <a href="Cart.html">Cart</a>
+    </nav>
+    </div>
+    <section class="menu-section offers-intro-section">
+    <h2 class="offers-heading">Special Promotions</h2>
+    <p class="offers-subtitle">Enjoy exclusive discounts on your favorite blends this month.</p>
+    
+    <div class="menu-grid offers-grid">
+        <div class="coffee-card offer-promo-card">
+            <i class="fa-solid fa-gift offer-icon"></i>
+            <h3 class="offer-title">Buy 1 Get 1 Free</h3>
+            <p class="offer-copy">On all Espresso based drinks every Tuesday.</p>
+            <button class="btn-primary" onclick="alert('Promo Code [TUESDAY-BOGO] applied! Add 2 Espressos to your cart to see the discount.')">Claim Offer</button>
+        </div>
+
+        <div class="coffee-card offer-promo-card">
+            <i class="fa-solid fa-percent offer-icon"></i>
+            <h3 class="offer-title">20% Off Equipment</h3>
+            <p class="offer-copy">Upgrade your home brewing kit with this limited time offer.</p>
+            <button class="btn-primary" onclick="window.location.href='Equipment.html'">Shop Now</button>
+        </div>
+    </div>
+</section>
+    <section class="menu-section offers-intro-section">
+       
+       <h2 class="offers-heading" style="font-size: 2rem;">Buy 1 Get 1 Eligible Drinks</h2>
+        <p class="offers-subtitle" style="margin-bottom: 30px;">Order any of these espresso drinks and get another one absolutely free!</p>
+        
+        <div class="menu-grid">
+            <div class="coffee-card">
+                <span class="card-tag" style="background: #e74c3c;">B1G1 FREE</span>
+                <img src="image/B1G1.avif" alt="Espresso" class="card-image">
+                <div class="card-content">
+                    <h3>Classic Espresso</h3>
+                    <p class="ingredients">100% Arabica Beans</p>
+                    <p class="description">Rich, intense, and pure coffee perfection. A concentrated shot with a golden crema.</p>
+                       <span class="price">$3.50</span>
+                    <div class="card-action">
+                     <button class="btn-add-cart" data-name="Classic Espresso" data-price="3.50">Add to Cart</button>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="coffee-card">
+                <span class="card-tag" style="background: #e74c3c;">B1G1 FREE</span>
+                <img src="image/B1G2.avif" alt="Latte" class="card-image">
+                <div class="card-content">
+                    <h3>Vanilla Latte</h3>
+                    <p class="ingredients">Espresso | Milk | Vanilla</p>
+                    <p class="description">Smooth and deeply satisfying. A gentle blend of dark roast espresso and sweet steamed milk.</p>
+                       <span class="price">$4.50</span>
+                    <div class="card-action">
+                     <button class="btn-add-cart" data-name="Vanilla Latte" data-price="4.50">Add to Cart</button>
+                     
+                    </div>
+                </div>
+            </div>
+            
+            <div class="coffee-card">
+                <span class="card-tag" style="background: #e74c3c;">B1G1 FREE</span>
+                <img src="image/B1G3.avif" alt="Cappuccino" class="card-image">
+                <div class="card-content">
+                    <h3>Cappuccino</h3>
+                    <p class="ingredients">Espresso | Foamed Milk</p>
+                    <p class="description">A classic Italian favorite. Rich espresso beautifully balanced with a thick layer of creamy foam.</p>
+                       <span class="price">$4.00</span>
+                    <div class="card-action">
+                        
+                       <button class="btn-add-cart" data-name="Cappuccino" data-price="4.00">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscriptions-section">
+        <h2 class="subscriptions-heading">Coffee Subscriptions</h2>
+        <p class="subscriptions-subtitle">Never run out of your favorite beans. Get fresh coffee delivered to your door.</p>
+
+        <div class="features-grid">
+            <div class="event-card subscription-card subscription-card--silver">
+                <h3 class="subscription-title">Silver Tier</h3>
+                <p class="subscription-price">$25 / month</p>
+                <ul class="event-details subscription-list">
+                    <li><i class="fa-solid fa-check"></i> 1 Bag of House Blend</li>
+                    <li><i class="fa-solid fa-check"></i> Monthly delivery</li>
+                    <li><i class="fa-solid fa-check"></i> 5% off in-store purchases</li>
+                </ul>
+                <button class="btn-secondary subscription-action" onclick="subscribeAlert('Silver')">Subscribe</button>
+            </div>
+            <div class="event-card subscription-card subscription-card--gold">
+                <h3 class="subscription-title">Gold Tier</h3>
+                <p class="subscription-price">$45 / month</p>
+                <ul class="event-details subscription-list">
+                    <li><i class="fa-solid fa-check"></i> 2 Bags of Single Origin</li>
+                    <li><i class="fa-solid fa-check"></i> Bi-weekly delivery</li>
+                    <li><i class="fa-solid fa-check"></i> Free access to tasting events</li>
+                </ul>
+                <button class="btn-primary subscription-action" onclick="subscribeAlert('Gold')">Subscribe</button>
+            </div>
+            <div class="event-card subscription-card subscription-card--platinum">
+                <h3 class="subscription-title">Platinum Tier</h3>
+                <p class="subscription-price">$80 / month</p>
+                <ul class="event-details subscription-list">
+                    <li><i class="fa-solid fa-check"></i> 4 Bags (Mixed Selection)</li>
+                    <li><i class="fa-solid fa-check"></i> Weekly delivery</li>
+                    <li><i class="fa-solid fa-check"></i> Exclusive early access to new beans</li>
+                </ul>
+                <button class="btn-secondary subscription-action" onclick="subscribeAlert('Platinum')">Subscribe</button>
+            </div>
+        </div>
+    </section>
+   <footer class="footer">
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h2>About Us</h2>
+                    <a href="Home.html">Our Heritage</a>
+                    <a href="Coffee.html">Our Coffee</a>
+                    <a href="Info.html">About Bean Boutique</a>
+                    <a href="offer.html">Customer Service</a>
+                    <a href="Info.html">Contact Us</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Careers</h2>
+                    <a href="Info.html">Culture and Values</a>
+                    <a href="Info.html">Join Our Team</a>
+                    <a href="Info.html">Alumni Community</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Social Impact</h2>
+                    <a href="Info.html">Ethical Sourcing</a>
+                    <a href="Info.html">Sustainability</a>
+                    <a href="Info.html">Community Foundation</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Order and Pick Up</h2>
+                    <a href="Info.html">Order on the App</a>
+                    <a href="Equipment.html">Order on the Web</a>
+                    <a href="Delivery.html">Delivery Options</a>
+                    <a href="Coffee.html">Explore Coffee for Home</a>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-wrapper">
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" target="_blank" title="Facebook"> <i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="Instagram"> <i class="fab fa-instagram"> </i></a>
+                    <a href="https://x.com/" target="_blank" title="Twitter"> <i class="fab fa-twitter"> </i> </a>
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube"> <i class="fab fa-youtube"> </i> </a>
+                </div>
+
+                <div class="legal-links">
+                    <a href="Legal.html">Privacy Notice</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Terms of Use</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Information</a>
+                </div>
+
+                <p class="copyright-text">© 2026 Bean Boutique Coffee Company. All rights reserved.</p>
+
+
+            </div>
+        </footer>
+   
+
+<script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal & Privacy - Bean Boutique</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@400;500;600&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <link rel="stylesheet" href="site.css">
+</head>
+
+<body class="page-home">
+    <div class="hero-section wrapper"></div>
+    <div class="hero-section">
+        <header class="navbar">
+            <div class="logo">Bean Boutique</div>
+            <nav class="nav-links">
+                <a href="Home.html">Home</a>
+                <a href="Coffee.html">Coffee</a>
+                <a href="Equipment.html">Equipment</a>
+                <a href="Event.html">Events</a>
+                <a href="offer.html">Offers</a>
+                <a href="Delivery.html">Delivery</a>
+                <a href="Payment.html">Payment</a>
+                <a href="Cart.html" id="navCartLink"><i class="fa-solid fa-cart-shopping"></i> Cart <span id="cart-count" hidden></span></a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header> 
+
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="Home.html">Home</a>
+            <a href="Coffee.html">Coffee</a>
+            <a href="Equipment.html">Equipment</a>
+            <a href="Event.html">Events</a>
+            <a href="offer.html">Offers</a>
+            <a href="Delivery.html">Delivery</a>
+            <a href="Payment.html">Payment</a>
+            <a href="Cart.html">Cart</a>
+        </nav>
+    </div>
+
+    <main class="legal-main-container" data-aos="fade-up">
+
+        <div class="legal-header-section">
+            <h1 class="legal-title">Legal & Privacy</h1>
+            <p class="legal-subtitle">Everything you need to know about how we protect your data, our terms of service, and general company information.</p>
+        </div>
+        
+        <div class="legal-tabs-wrapper">
+            <button class="legal-tab-btn active" onclick="openLegalTab(event, 'privacy')">Privacy Notice</button>
+            <button class="legal-tab-btn" onclick="openLegalTab(event, 'terms')">Terms of Use</button>
+            <button class="legal-tab-btn" onclick="openLegalTab(event, 'info')">General Information</button>
+        </div>
+
+        <div class="legal-content-box">
+            
+            <div id="privacy" class="legal-tab-content active">
+                <h2 class="legal-section-title">Privacy Notice</h2>
+                <p class="legal-text">At Bean Boutique, your privacy is a top priority. This notice outlines how we collect, use, and protect your personal information when you interact with our website or visit our stores.</p>
+                
+                <h3 class="legal-sub-heading">1. Information We Collect</h3>
+                <p class="legal-text">We collect information you provide directly to us, such as when you create an account, place an order, subscribe to our newsletter, or contact customer service. This may include your name, email address, phone number, and payment details.</p>
+
+                <h3 class="legal-sub-heading">2. How We Use Your Information</h3>
+                <ul class="legal-list">
+                    <li>To process and fulfill your orders, including sending emails to confirm your order status and shipment.</li>
+                    <li>To communicate with you about products, services, offers, and promotions.</li>
+                    <li>To personalize your experience on our website.</li>
+                </ul>
+
+                <h3 class="legal-sub-heading">3. Data Security</h3>
+                <p class="legal-text">We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+            </div>
+
+            <div id="terms" class="legal-tab-content">
+                <h2 class="legal-section-title">Terms of Use</h2>
+                <p class="legal-text">Welcome to Bean Boutique. By accessing or using our website, you agree to comply with and be bound by the following terms and conditions.</p>
+                
+                <h3 class="legal-sub-heading">1. Acceptance of Terms</h3>
+                <p class="legal-text">If you do not agree to all of these terms, do not use this website. We reserve the right to change these terms at any time, and your continued use of the website constitutes agreement to all such changes.</p>
+
+                <h3 class="legal-sub-heading">2. Intellectual Property</h3>
+                <p class="legal-text">All content included on this site, such as text, graphics, logos, images, and software, is the property of Bean Boutique or its content suppliers and protected by international copyright laws.</p>
+            </div>
+
+            <div id="info" class="legal-tab-content">
+                <h2 class="legal-section-title">Company Information (Update Soon...)</h2>
+                
+                <h3 class="legal-sub-heading">Accessibility Statement</h3>
+                <p class="legal-text">Bean Boutique is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
+            </div>
+
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-links-container">
+            <div class="footer-column">
+                <h2>About Us</h2>
+                <a href="Home.html">Our Heritage</a>
+                <a href="Coffee.html">Our Coffee</a>
+                <a href="Info.html">About Bean Boutique</a>
+                <a href="offer.html">Customer Service</a>
+                <a href="Info.html">Contact Us</a>
+            </div>
+
+            <div class="footer-column">
+                <h2>Careers</h2>
+                <a href="Info.html">Culture and Values</a>
+                <a href="Info.html">Join Our Team</a>
+                <a href="Info.html">Alumni Community</a>
+            </div>
+
+            <div class="footer-column">
+                <h2>Social Impact</h2>
+                <a href="Info.html">Ethical Sourcing</a>
+                <a href="Info.html">Sustainability</a>
+                <a href="Info.html">Community Foundation</a>
+            </div>
+
+            <div class="footer-column">
+                <h2>Order and Pick Up</h2>
+                <a href="Info.html">Order on the App</a>
+                <a href="Equipment.html">Order on the Web</a>
+                <a href="Delivery.html">Delivery Options</a>
+                <a href="Coffee.html">Explore Coffee for Home</a>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom-wrapper">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/" target="_blank" title="Facebook"> <i class="fab fa-facebook-f"> </i></a>
+                <a href="https://www.instagram.com/" target="_blank" title="Instagram"> <i class="fab fa-instagram"> </i></a>
+                <a href="https://x.com/" target="_blank" title="Twitter"> <i class="fab fa-twitter"> </i> </a>
+                <a href="https://www.youtube.com/" target="_blank" title="YouTube"> <i class="fab fa-youtube"> </i> </a>
+            </div>
+
+            <div class="legal-links">
+                <a href="Legal.html">Privacy Notice</a>
+                <span class="divider">|</span>
+                <a href="Legal.html">Terms of Use</a>
+                <span class="divider">|</span>
+                <a href="Legal.html">Information</a>
+            </div>
+
+            <p class="copyright-text">© 2026 Bean Boutique Coffee Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js?v=5"></script>
+</body>
+</html>

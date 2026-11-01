@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Third Year English (Eng 3001 &amp; 3002) – Study Book</title>
+  <meta name="description" content="An interactive study book for Third Year English (Eng 3001 &amp; 3002): vocabulary, grammar and past exam papers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="top">
+    <button class="top__menu" id="menuBtn" type="button" aria-label="Open contents" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button>
+    <div class="top__title">
+      <span class="top__eyebrow">Eng 3001 &amp; Eng 3002 &middot; Distance Education</span>
+      <h1>Third Year English <em>Study Book</em></h1>
+    </div>
+    <div class="top__search">
+      <label class="sr" for="search">Search the study book</label>
+      <input id="search" type="search" placeholder="Search words, rules, exercises&hellip;" autocomplete="off">
+    </div>
+    <div class="top__progress" aria-live="polite">
+      <span id="progressText">0 / 17 studied</span>
+      <div class="bar"><i id="progressBar"></i></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" aria-label="Contents"></nav>
+    <main class="content" id="content" tabindex="-1"></main>
+  </div>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <a class="back" href="../../index.html#portfolio">&larr; Back to NY Portfolio</a>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

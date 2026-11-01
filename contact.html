@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact – NY | Your Vision, Our Development</title>
+  <meta name="description" content="Contact NY for a website, portfolio, online store or AI integration. Phone and email.">
+  <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header site-header--solid" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="NY – home">
+        <img src="assets/icons/logo-128.png" alt="NY Web Development and Digital Solutions" width="52" height="52">
+      </a>
+      <nav class="nav__menu" id="navMenu" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+          <li><a class="nav__link" href="index.html#services">Services</a></li>
+          <li><a class="nav__link" href="index.html#portfolio">Portfolio</a></li>
+          <li><a class="nav__link is-active" aria-current="page" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="contactTitle">
+      <div class="container">
+        <p class="page-hero__eyebrow">Contact</p>
+        <h1 class="page-hero__title" id="contactTitle">Let&rsquo;s talk about your project.</h1>
+        <p class="page-hero__text">Tell me what you have in mind &mdash; I&rsquo;ll reply with ideas and next steps.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Contact details and message form">
+      <div class="container contact">
+        <div class="contact__info">
+          <a class="contact-card reveal" href="tel:+959898793502">
+            <span class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span>
+              <span class="contact-card__label">Phone (Work)</span>
+              <span class="contact-card__value">09898793502</span>
+            </span>
+          </a>
+          <a class="contact-card reveal" href="mailto:naychi.dev.mm@gmail.com">
+            <span class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <span>
+              <span class="contact-card__label">Email</span>
+              <span class="contact-card__value contact-card__value--email">naychi.dev.mm@gmail.com</span>
+            </span>
+          </a>
+          <p class="contact__note reveal">Tap the phone number to call, or the email address to open your mail app.</p>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <h2 class="contact-form__title">Send a message</h2>
+          <label for="cfName">Your name</label>
+          <input id="cfName" name="name" type="text" autocomplete="name" required>
+          <label for="cfEmail">Your email</label>
+          <input id="cfEmail" name="email" type="email" autocomplete="email" required>
+          <label for="cfMsg">Message</label>
+          <textarea id="cfMsg" name="message" rows="5" required></textarea>
+          <p class="contact-form__error" id="cfError" role="alert" hidden>Please fill in all three fields.</p>
+          <button class="btn btn--primary" type="submit">Send Message</button>
+          <p class="contact-form__hint">This opens your email app with the message ready to send to naychi.dev.mm@gmail.com.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__row">
+        <a class="brand" href="index.html" aria-label="NY – home"><img src="assets/icons/logo-128.png" alt="NY Web Development and Digital Solutions" width="52" height="52"></a>
+        <nav aria-label="Footer navigation">
+          <ul class="site-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="site-footer__contact">
+        <a href="tel:+959898793502">09898793502 (Work)</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:naychi.dev.mm@gmail.com">naychi.dev.mm@gmail.com</a>
+      </p>
+      <p class="site-footer__copy">© <span id="year">2026</span> NY. All rights reserved. · Your Vision, Our Development</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 15 7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById("contactForm");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = form.name.value.trim(), email = form.email.value.trim(), msg = form.message.value.trim();
+        var err = document.getElementById("cfError");
+        if (!name || !email || !msg) { err.hidden = false; return; }
+        err.hidden = true;
+        var subject = "Website enquiry from " + name;
+        var body = msg + "\n\n— " + name + "\n" + email;
+        window.location.href = "mailto:naychi.dev.mm@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      });
+    })();
+  </script>
+</body>
+</html>

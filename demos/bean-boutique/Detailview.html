@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Americano - Bean Boutique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css?v=3">
+</head>
+<body class="page-detailview product-page-body">
+
+    <header class="navbar">
+        <div class="logo">Bean Boutique</div>
+        <nav class="nav-links">
+            <a href="Home.html">Home</a>
+        <a href="Coffee.html">Coffee</a>
+        <a href="Equipment.html">Equipment</a>
+        <a href="Event.html">Events</a>
+        <a href="offer.html">Offers</a>
+        <a href="Delivery.html">Delivery</a>
+        <a href="Payment.html">Payment</a>
+            <a href="Cart.html" id="navCartLink"><i class="fa-solid fa-cart-shopping"></i> Cart <span id="cart-count" hidden></span></a>
+        </nav>
+     <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        
+
+        <span></span>
+        <span></span>
+        <span></span>
+    </header> 
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="Home.html">Home</a>
+        <a href="Coffee.html">Coffee</a>
+        <a href="Equipment.html">Equipment</a>
+        <a href="Event.html">Events</a>
+        <a href="offer.html">Offers</a>
+        <a href="Delivery.html">Delivery</a>
+        <a href="Payment.html">Payment</a>
+        <a href="Cart.html">Cart</a>
+    </nav>
+
+    <header class="product-header-section">
+        <div class="product-header-container">
+            <img src="image/orangeamericano.jpg" alt="Orange Americano" class="product-main-img"> 
+            <div class="product-title-info">
+                <h1 id="productTitle">Orange Americano</h1>
+                <p class="calories">120 calories </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-details-container">
+        <section class="size-section">
+            <h2 class="section-title">Size options</h2>
+            <hr class="title-underline">
+            <div class="size-selector">
+                <div class="size-option" onclick="selectSize(this, 5.50)">
+                    <div class="cup-icon"><i class="fa-solid fa-mug-hot cup-icon-sm"></i></div>
+                    <span class="size-name">Tall</span>
+                    <span class="size-oz">12 fl oz</span>
+                </div>
+                <div class="size-option active" onclick="selectSize(this, 6.50)">
+                    <div class="cup-icon"><i class="fa-solid fa-mug-hot cup-icon-md"></i></div>
+                    <span class="size-name">Grande</span>
+                    <span class="size-oz">16 fl oz</span>
+                </div>
+                <div class="size-option" onclick="selectSize(this, 7.50)">
+                    <div class="cup-icon"><i class="fa-solid fa-mug-hot cup-icon-lg"></i></div>
+                    <span class="size-name">Venti</span>
+                    <span class="size-oz">24 fl oz</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="options-section">
+            <h2 class="section-title">What's included</h2>
+            <hr class="title-underline">
+
+            <div class="option-box">
+                <span class="option-label">Syrup</span>
+                <span class="option-value">Classic Syrup</span>
+                <div class="counter">
+                    <i class="fa-solid fa-circle-minus"></i><span class="qty-num">1</span><i class="fa-solid fa-circle-plus"></i>
+                </div>
+
+                
+            </div>
+
+            <div class="option-box clickable">
+                <span class="option-label">Juice</span>
+                <span class="option-value">Fresh Orange Juice</span>
+                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </div>
+
+            <div class="sticky-action-bar">
+                <button class="btn-add-order" id="addToOrderBtn">Add to Order - $<span id="currentPrice">6.50</span></button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h2>About Us</h2>
+                    <a href="Home.html">Our Heritage</a>
+                    <a href="Coffee.html">Our Coffee</a>
+                    <a href="Info.html">About Bean Boutique</a>
+                    <a href="offer.html">Customer Service</a>
+                    <a href="Info.html">Contact Us</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Careers</h2>
+                    <a href="Info.html">Culture and Values</a>
+                    <a href="Info.html">Join Our Team</a>
+                    <a href="Info.html">Alumni Community</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Social Impact</h2>
+                    <a href="Info.html">Ethical Sourcing</a>
+                    <a href="Info.html">Sustainability</a>
+                    <a href="Info.html">Community Foundation</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Order and Pick Up</h2>
+                    <a href="Info.html">Order on the App</a>
+                    <a href="Equipment.html">Order on the Web</a>
+                    <a href="Delivery.html">Delivery Options</a>
+                    <a href="Coffee.html">Explore Coffee for Home</a>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-wrapper">
+
+                <div class="social-icons">
+                     <a href="https://www.facebook.com/" target="_blank" title="Facebook"> <i class="fab fa-facebook-f"> </i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="Instagram"> <i class="fab fa-instagram"> </i></a>
+                    <a href="https://x.com/" target="_blank" title="Twitter"> <i class="fab fa-twitter"> </i> </a>
+                    <a href="https://www.youtube.com/" target="_blank" title="YouTube"> <i class="fab fa-youtube"> </i> </a>
+                </div>
+
+                <div class="legal-links">
+                    <a href="Legal.html">Privacy Notice</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Terms of Use</a>
+                    <span class="divider">|</span>
+                    <a href="Legal.html">Information</a>
+                </div>
+
+                <p class="copyright-text">© 2026 Bean Boutique Coffee Company. All rights reserved.</p>
+
+
+            </div>
+        </footer>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

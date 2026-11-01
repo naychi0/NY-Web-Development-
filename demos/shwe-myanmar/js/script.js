@@ -200,6 +200,39 @@
   }
 
   /* 6. NEWS: category filter + pagination -------------------- */
+  var newsPhotos = {
+    "A new look for Shwe Myanmar": {
+      file: "A new look for Shwe Myanmar.jpg",
+      alt: "Traditional tea and a shared platter of Burmese snacks"
+    },
+    "Five quick dinners for busy weeknights": {
+      file: "Five quick dinners for busy weeknights.jpg",
+      alt: "Fresh spring rolls with dipping sauces"
+    },
+    "Our approach to food safety, explained": {
+      file: "Our approach to food safety, explained.jpg",
+      alt: "Food safety graphic featuring SafePlate Standards"
+    }
+  };
+  function applyNewsPhoto(figure, photo) {
+    if (!figure || !photo) return;
+    var image = document.createElement("img");
+    image.src = "assets/images/" + encodeURIComponent(photo.file);
+    image.alt = photo.alt;
+    figure.removeAttribute("role");
+    figure.removeAttribute("aria-label");
+    figure.replaceChildren(image);
+  }
+  $$(".news-item").forEach(function (item) {
+    var title = $(".card__title", item), figure = $("figure.ph", item);
+    var photo = title && newsPhotos[title.textContent.trim()];
+    applyNewsPhoto(figure, photo);
+  });
+  var featuredTitle = $("#featTitle"), featuredPhoto = $(".featured .ph");
+  if (featuredTitle && featuredPhoto && featuredTitle.textContent.indexOf("new corporate website") !== -1) {
+    applyNewsPhoto(featuredPhoto, newsPhotos["A new look for Shwe Myanmar"]);
+  }
+
   var newsList = $("#newsList");
   if (newsList) {
     var items = $$(".news-item", newsList), PER = 4, ns = { cat: "all", page: 1 };

@@ -261,8 +261,8 @@ a.card:hover, .card--lift:hover { transform: translateY(-5px); box-shadow: var(-
 
 /* 12. PRODUCTS */
 .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.prod-card__pic { display: grid; place-items: center; height: 230px; padding: 20px 0 10px; background: radial-gradient(circle at 50% 45%, #fff, #efe8da); }
-.prod-card__pic svg, .prod-card__pic img { height: 100%; width: auto; max-width: 100%; object-fit: contain; transition: transform .4s var(--ease); }
+.prod-card__pic { display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; height: 230px; min-height: 0; padding: 20px 0 10px; overflow: hidden; background: radial-gradient(circle at 50% 45%, #fff, #efe8da); }
+.prod-card__pic svg, .prod-card__pic img { grid-area: 1 / 1; height: 100%; width: 100%; min-width: 0; min-height: 0; object-fit: contain; transition: transform .4s var(--ease); }
 .prod-card__pic img + svg { display: none; }
 .prod-card:hover .prod-card__pic svg, .prod-card:hover .prod-card__pic img { transform: scale(1.05); }
 .cat-card { position: relative; padding: 28px 24px 24px; min-height: 230px; justify-content: space-between; }

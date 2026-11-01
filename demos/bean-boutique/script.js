@@ -139,12 +139,6 @@ window.removeItem = function(index) {
    3. MAIN DOM LOADED 
    ========================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    const demoBanner = document.createElement('div');
-    demoBanner.className = 'demo-banner';
-    demoBanner.setAttribute('role', 'note');
-    demoBanner.textContent = 'This is a demo storefront. No real payments or orders are processed. Please do not enter real passwords or sensitive personal data.';
-    document.body.prepend(demoBanner);
-
     if (window.AOS) {
         window.AOS.init({
             duration: 700,

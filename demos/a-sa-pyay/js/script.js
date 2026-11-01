@@ -57,7 +57,8 @@
   var dotsWrap = $("#heroDots");
   var current = 0, timer = null, paused = false, busy = false;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  slides.forEach(function (_, i) {
+  slides.forEach(function (slide, i) {
+    slide.setAttribute("aria-label", (i + 1) + " of " + slides.length);
     var d = document.createElement("button");
     d.type = "button";
     d.className = "hero__dot" + (i === 0 ? " is-active" : "");

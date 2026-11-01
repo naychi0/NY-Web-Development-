@@ -212,6 +212,18 @@
     "Our approach to food safety, explained": {
       file: "Our approach to food safety, explained.jpg",
       alt: "Food safety graphic featuring SafePlate Standards"
+    },
+    "Open house for our partners": {
+      file: "Open house for our partners.jpg",
+      alt: "Business partners greeting at a meeting table"
+    },
+    "Welcome to our new team members": {
+      file: "Welcome to our new team members.jpg",
+      alt: "Team members gathered around a meeting table"
+    },
+    "Cooking classes for young home cooks": {
+      file: "Cooking classes for young home cooks.jpg",
+      alt: "Participants learning to make noodles in a cooking class"
     }
   };
   function applyNewsPhoto(figure, photo) {

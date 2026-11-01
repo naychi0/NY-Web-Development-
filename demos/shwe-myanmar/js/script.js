@@ -102,7 +102,7 @@
     { id: "p8", name: "Ready Curry Sauce", cat: "ready", shape: "box", color: "#9A4012", label: ["Ready", "Curry"], sizes: ["Single box", "Pack of 3"], desc: "Heat and serve – a slow-simmered curry base for busy evenings." }
   ];
   var uid = 0;
-  /* Studio-style pack drawing. A real photo at assets/images/products/<id>.webp replaces it automatically. */
+  /* Studio-style pack drawing remains as a fallback when a product photo is missing. */
   function pack(p) {
     var id = "pk" + (++uid), c = p.color, dk = shade(c, -.32), lt = shade(c, .34), y = p.shape === "bottle" ? 112 : 100;
     var defs = '<defs>' +
@@ -144,7 +144,7 @@
     }
     return '<svg viewBox="0 0 200 240" role="img" aria-label="' + esc(p.name) + ' pack (illustration)">' + defs + '<ellipse cx="100" cy="228" rx="70" ry="9" fill="url(#' + id + 'o)"/>' + b + '</svg>';
   }
-  function picHtml(p) { return '<img src="assets/images/products/' + p.id + '.webp" alt="' + esc(p.name) + '" loading="lazy" onerror="this.remove()">' + pack(p); }
+  function picHtml(p) { return '<img src="assets/images/' + encodeURIComponent(p.name) + '.jpg" alt="' + esc(p.name) + '" loading="lazy" onerror="this.remove()">' + pack(p); }
   function byId(id) { return PRODUCTS.filter(function (x) { return x.id === id; })[0]; }
   function arrow() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; }
   function cardHtml(p) {

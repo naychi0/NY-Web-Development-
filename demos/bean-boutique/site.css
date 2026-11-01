@@ -5,6 +5,26 @@
     --bg-light: #fdfaf5;
 }
 
+body.page-home .demo-banner,
+body.page-signup .demo-banner {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    padding: 10px 16px;
+    background: #e88900;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+}
+
+body.page-home .demo-form-notice,
+body.page-signup .demo-form-notice {
+    margin: 8px 0;
+    color: #666;
+    font-size: 0.85rem;
+}
+
 body.page-home{
     --primary-brown: #5c3516;
     --text-grey: #666666;

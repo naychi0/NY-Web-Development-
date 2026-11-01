@@ -34,6 +34,28 @@ window.closeRegistration = function() {
 const DISCOUNT_MODAL_STORAGE_KEY = 'beanBoutiqueDiscountSeenV2';
 const DISCOUNT_EMAIL_STORAGE_KEY = 'beanBoutiqueDiscountEmail';
 
+function getCartItems() {
+    try {
+        const cart = JSON.parse(localStorage.getItem('beanBoutiqueCart') || '[]');
+        if (!Array.isArray(cart)) return [];
+
+        return cart.filter(item => item &&
+            typeof item.name === 'string' &&
+            Number.isFinite(item.price) && item.price >= 0 &&
+            Number.isSafeInteger(item.quantity) && item.quantity > 0);
+    } catch {
+        return [];
+    }
+}
+
+function createTextCell(className, label, value) {
+    const cell = document.createElement('td');
+    cell.className = className;
+    cell.dataset.label = label;
+    cell.textContent = value;
+    return cell;
+}
+
 window.openAuthModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
@@ -76,7 +98,7 @@ window.closeDiscountModal = function(markAsSeen = true) {
    ========================================================== */
 
 window.updateCartBadge = function() {
-    let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
+    const cart = getCartItems();
     let totalItems = 0;
     cart.forEach(item => { totalItems += item.quantity; });
     
@@ -93,7 +115,8 @@ window.updateCartBadge = function() {
 };
 
 window.changeQuantity = function(index, change) {
-    let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
+    const cart = getCartItems();
+    if (!cart[index]) return;
     cart[index].quantity += change;
     if (cart[index].quantity <= 0) cart.splice(index, 1);
     localStorage.setItem('beanBoutiqueCart', JSON.stringify(cart));
@@ -103,7 +126,8 @@ window.changeQuantity = function(index, change) {
 };
 
 window.removeItem = function(index) {
-    let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
+    const cart = getCartItems();
+    if (!cart[index]) return;
     cart.splice(index, 1);
     localStorage.setItem('beanBoutiqueCart', JSON.stringify(cart));
     window.updateCartBadge();
@@ -115,6 +139,12 @@ window.removeItem = function(index) {
    3. MAIN DOM LOADED 
    ========================================================== */
 document.addEventListener('DOMContentLoaded', () => {
+    const demoBanner = document.createElement('div');
+    demoBanner.className = 'demo-banner';
+    demoBanner.setAttribute('role', 'note');
+    demoBanner.textContent = 'This is a demo storefront. No real payments or orders are processed. Please do not enter real passwords or sensitive personal data.';
+    document.body.prepend(demoBanner);
+
     if (window.AOS) {
         window.AOS.init({
             duration: 700,
@@ -246,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ADD TO CART SYSTEM (Event Delegation for Coffee and Equipment Pages)
     function addItemToCart(name, price) {
-        let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
+        const cart = getCartItems();
         const existingItem = cart.find(item => item.name === name);
         if (existingItem) {
             existingItem.quantity += 1;
@@ -268,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = e.target.getAttribute('data-name');
             const price = parseFloat(e.target.getAttribute('data-price'));
 
-            if(name && price) {
+            if(name && Number.isFinite(price) && price >= 0) {
                 addItemToCart(name, price);
             }
         }
@@ -294,8 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartContent = document.getElementById('cartContent');
         if (!cartTableBody) return; 
         
-        let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
-        cartTableBody.innerHTML = '';
+        const cart = getCartItems();
+        cartTableBody.replaceChildren();
         let total = 0;
         
         if (cart.length === 0) {
@@ -308,20 +338,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         cart.forEach((item, index) => {
-            let itemTotal = item.price * item.quantity;
+            const itemTotal = item.price * item.quantity;
             total += itemTotal;
-            cartTableBody.innerHTML += `
-                <tr>
-                    <td class="cart-cell cart-product-cell" data-label="Product Name">${item.name}</td>
-                    <td class="cart-cell" data-label="Price">$${item.price.toFixed(2)}</td>
-                    <td class="cart-cell" data-label="Quantity">
-                        <button onclick="changeQuantity(${index}, -1)" class="cart-qty-btn" aria-label="Decrease quantity">-</button>
-                        <span class="cart-qty-value">${item.quantity}</span>
-                        <button onclick="changeQuantity(${index}, 1)" class="cart-qty-btn" aria-label="Increase quantity">+</button>
-                    </td>
-                    <td class="cart-cell" data-label="Subtotal">$${itemTotal.toFixed(2)}</td>
-                    <td class="cart-cell" data-label="Action"><button onclick="removeItem(${index})" class="cart-remove-btn" aria-label="Remove ${item.name}"><i class="fa-solid fa-trash-can"></i></button></td>
-                </tr>`;
+            const row = document.createElement('tr');
+            row.append(
+                createTextCell('cart-cell cart-product-cell', 'Product Name', item.name),
+                createTextCell('cart-cell', 'Price', `$${item.price.toFixed(2)}`)
+            );
+
+            const quantityCell = document.createElement('td');
+            quantityCell.className = 'cart-cell';
+            quantityCell.dataset.label = 'Quantity';
+            const decreaseButton = document.createElement('button');
+            decreaseButton.type = 'button';
+            decreaseButton.className = 'cart-qty-btn';
+            decreaseButton.setAttribute('aria-label', 'Decrease quantity');
+            decreaseButton.textContent = '-';
+            decreaseButton.addEventListener('click', () => window.changeQuantity(index, -1));
+            const quantity = document.createElement('span');
+            quantity.className = 'cart-qty-value';
+            quantity.textContent = String(item.quantity);
+            const increaseButton = document.createElement('button');
+            increaseButton.type = 'button';
+            increaseButton.className = 'cart-qty-btn';
+            increaseButton.setAttribute('aria-label', 'Increase quantity');
+            increaseButton.textContent = '+';
+            increaseButton.addEventListener('click', () => window.changeQuantity(index, 1));
+            quantityCell.append(decreaseButton, quantity, increaseButton);
+            row.append(quantityCell, createTextCell('cart-cell', 'Subtotal', `$${itemTotal.toFixed(2)}`));
+
+            const actionCell = document.createElement('td');
+            actionCell.className = 'cart-cell';
+            actionCell.dataset.label = 'Action';
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.className = 'cart-remove-btn';
+            removeButton.setAttribute('aria-label', `Remove ${item.name}`);
+            removeButton.addEventListener('click', () => window.removeItem(index));
+            const removeIcon = document.createElement('i');
+            removeIcon.className = 'fa-solid fa-trash-can';
+            removeIcon.setAttribute('aria-hidden', 'true');
+            removeButton.appendChild(removeIcon);
+            actionCell.appendChild(removeButton);
+            row.appendChild(actionCell);
+            cartTableBody.appendChild(row);
         });
         if(cartGrandTotal) cartGrandTotal.innerText = `$${total.toFixed(2)}`;
     };
@@ -334,42 +394,49 @@ document.addEventListener('DOMContentLoaded', () => {
         const checkoutForm = document.getElementById('checkoutForm');
         if (!checkoutSummaryBody) return; 
         
-        let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
-        checkoutSummaryBody.innerHTML = '';
+        const cart = getCartItems();
+        checkoutSummaryBody.replaceChildren();
         let grandTotal = 0;
+
+        if (checkoutForm && !checkoutForm.dataset.listenerAttached) {
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (getCartItems().length === 0) { alert('Your cart is empty!'); return; }
+
+                const successOverlay = document.getElementById('successOverlay');
+                if (successOverlay) successOverlay.style.display = 'flex';
+                else alert('Order Successful! Thank you.');
+
+                localStorage.removeItem('beanBoutiqueCart');
+                setTimeout(() => { window.location.href = 'Home.html'; }, 3000);
+            });
+            checkoutForm.dataset.listenerAttached = 'true';
+        }
         
         if (cart.length === 0) {
-            checkoutSummaryBody.innerHTML = "<tr><td colspan='3' class='checkout-empty-message'>Your cart is empty.</td></tr>";
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 3;
+            cell.className = 'checkout-empty-message';
+            cell.textContent = 'Your cart is empty.';
+            row.appendChild(cell);
+            checkoutSummaryBody.appendChild(row);
             if(checkoutGrandTotal) checkoutGrandTotal.innerText = '$0.00';
             return;
         }
         
         cart.forEach(item => {
-            let subTotal = item.price * item.quantity;
+            const subTotal = item.price * item.quantity;
             grandTotal += subTotal;
-            checkoutSummaryBody.innerHTML += `
-                <tr>
-                    <td class="checkout-summary-item">${item.name}</td>
-                    <td class="checkout-summary-qty">x ${item.quantity}</td>
-                    <td class="checkout-summary-price">$${subTotal.toFixed(2)}</td>
-                </tr>`;
+            const row = document.createElement('tr');
+            row.append(
+                createTextCell('checkout-summary-item', '', item.name),
+                createTextCell('checkout-summary-qty', '', `x ${item.quantity}`),
+                createTextCell('checkout-summary-price', '', `$${subTotal.toFixed(2)}`)
+            );
+            checkoutSummaryBody.appendChild(row);
         });
         if (checkoutGrandTotal) checkoutGrandTotal.innerText = `$${grandTotal.toFixed(2)}`;
-
-        if (checkoutForm && !checkoutForm.dataset.listenerAttached) {
-            checkoutForm.addEventListener('submit', (e) => {
-                e.preventDefault(); 
-                if (cart.length === 0) { alert("Your cart is empty!"); return; }
-                
-                const successOverlay = document.getElementById('successOverlay');
-                if(successOverlay) successOverlay.style.display = 'flex'; 
-                else alert("Order Successful! Thank you.");
-                
-                localStorage.removeItem('beanBoutiqueCart'); 
-                setTimeout(() => { window.location.href = "Home.html"; }, 3000);
-            });
-            checkoutForm.dataset.listenerAttached = 'true';
-        }
     };
     if(document.getElementById('checkoutSummaryBody')) window.renderCheckoutPage();
 
@@ -403,74 +470,72 @@ function claimOffer() {
    DISPLAY CART ITEMS (No Images, Table Format - FIXED)
    ========================================================== */
 function displayCartItems() {
-    
-    let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
-    let cartContainer = document.getElementById('cart-items-container');
-    let emptyMessage = document.getElementById('empty-cart-message');
+
+    const cart = getCartItems();
+    const cartContainer = document.getElementById('cart-items-container');
+    const emptyMessage = document.getElementById('empty-cart-message');
 
     if (!cartContainer) return;
 
+    cartContainer.replaceChildren();
     if (cart.length === 0) {
-        cartContainer.innerHTML = '';
         if (emptyMessage) emptyMessage.style.display = 'block';
         return;
     }
 
     if (emptyMessage) emptyMessage.style.display = 'none';
 
-    let cartHTML = `
-        <div style="display: grid; grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr; gap: 15px; border-bottom: 2px solid #eaeaea; padding-bottom: 10px; margin-bottom: 20px; font-family: 'Lora', serif; color: #888; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-            <div>Product Name</div>
-            <div style="text-align: center;">Price</div>
-            <div style="text-align: center;">Quantity</div>
-            <div style="text-align: right;">Subtotal</div>
-            <div style="text-align: right;">Action</div>
-        </div>
-    `;
-
+    const total = document.createElement('div');
+    total.className = 'cart-items-total';
     let totalAmount = 0;
 
     cart.forEach((item, index) => {
-        let itemTotal = item.price * item.quantity;
+        const itemTotal = item.price * item.quantity;
         totalAmount += itemTotal;
-        
-        cartHTML += `
-            <div class="cart-item" style="display: grid; grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr; gap: 15px; align-items: center; border-bottom: 1px solid #f5f5f5; padding: 20px 0; font-family: 'Poppins', sans-serif;">
-                <div style="font-weight: 600; color: #333;">${item.name}</div>
-                <div style="text-align: center; color: #666;">$${item.price.toFixed(2)}</div>
-                
-                <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-                    <button onclick="updateQuantity(${index}, -1)" style="background: #f0f0f0; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold; color: #555;">-</button>
-                    <span style="font-weight: 600;">${item.quantity}</span>
-                    <button onclick="updateQuantity(${index}, 1)" style="background: #f0f0f0; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold; color: #555;">+</button>
-                </div>
-                
-                <div style="text-align: right; color: #333;">$${itemTotal.toFixed(2)}</div>
-                <div style="text-align: right;">
-                    <button onclick="removeFromCart(${index})" style="background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 1.2rem;" title="Remove Item">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-            </div>
-        `;
+        const itemRow = document.createElement('div');
+        itemRow.className = 'cart-item';
+
+        const name = document.createElement('span');
+        name.className = 'item-name';
+        name.textContent = item.name;
+        const price = document.createElement('span');
+        price.className = 'item-price';
+        price.textContent = `$${item.price.toFixed(2)}`;
+        const quantity = document.createElement('span');
+        quantity.className = 'item-qty';
+        quantity.textContent = `Qty: ${item.quantity}`;
+        const subtotal = document.createElement('span');
+        subtotal.className = 'item-subtotal';
+        subtotal.textContent = `$${itemTotal.toFixed(2)}`;
+
+        const decrease = document.createElement('button');
+        decrease.type = 'button';
+        decrease.textContent = '-';
+        decrease.setAttribute('aria-label', 'Decrease quantity');
+        decrease.addEventListener('click', () => updateQuantity(index, -1));
+        const increase = document.createElement('button');
+        increase.type = 'button';
+        increase.textContent = '+';
+        increase.setAttribute('aria-label', 'Increase quantity');
+        increase.addEventListener('click', () => updateQuantity(index, 1));
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.textContent = 'Remove';
+        remove.setAttribute('aria-label', `Remove ${item.name}`);
+        remove.addEventListener('click', () => removeFromCart(index));
+
+        itemRow.append(name, price, quantity, subtotal, decrease, increase, remove);
+        cartContainer.appendChild(itemRow);
     });
 
-    cartHTML += `
-        <div style="text-align: right; margin-top: 40px; font-size: 1.6rem; font-family: 'Playfair Display', serif; color: #f4b04f;">
-            <strong>Total Amount: $${totalAmount.toFixed(2)}</strong>
-        </div>
-        <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px;">
-            <button class="btn-secondary" style="padding: 12px 30px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; background: #f9f9f9; cursor: pointer;" onclick="window.location.href='Coffee.html'">Continue Shopping</button>
-            <button class="btn-primary" style="padding: 12px 30px; font-size: 1rem; border-radius: 8px; background: #f4b04f; color: white; border: none; cursor: pointer;" onclick="alert('Proceeding to Checkout...')">Proceed to Checkout</button>
-        </div>
-    `;
-
-    cartContainer.innerHTML = cartHTML;
+    total.textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
+    cartContainer.appendChild(total);
 }
 
 // Function
 function updateQuantity(index, change) {
-    let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
+    const cart = getCartItems();
+    if (!cart[index]) return;
     cart[index].quantity += change;
     
     if (cart[index].quantity <= 0) {
@@ -484,7 +549,8 @@ function updateQuantity(index, change) {
 
 // Function
 function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem('beanBoutiqueCart')) || [];
+    const cart = getCartItems();
+    if (!cart[index]) return;
     cart.splice(index, 1);
     localStorage.setItem('beanBoutiqueCart', JSON.stringify(cart));
     if (window.updateCartBadge) window.updateCartBadge(); 
